@@ -1,5 +1,10 @@
 // Define a grammar called Hello
 grammar Sfz;
-r  : 'hello' ID ;         // match keyword hello followed by an identifier
-ID : [a-z]+ ;             // match lower-case identifiers
-WS : [ \t\r\n]+ -> skip ; // skip spaces, tabs, newlines
+NEWLINE: ('\n'|'\r\n');
+TEXT: ('a'..'z'|'A'..'Z'|'0'..'9')+;
+OPCODE: ('a'..'z'|'A'..'Z'|'_')+;
+sfz : line+ EOF ;
+line : (context | statement) NEWLINE;
+context: '<' TEXT '>';
+statement: OPCODE '=' value;
+value: TEXT;
