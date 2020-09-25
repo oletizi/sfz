@@ -34,15 +34,15 @@ public class SfzParserTest {
         private final Logger logger = LogManager.getLogger(TestSfzListener.class.getName());
 
         public void exitHeader(SfzParser.HeaderContext ctx) {
-            logger.info("exitHeader: " + ctx.getText());
+            //logger.info("exitHeader: " + ctx.getText());
         }
 
         public void exitOpcode(SfzParser.OpcodeContext ctx) {
-            logger.info("exitOpcode: " + ctx.getText());
+            //logger.info("exitOpcode: " + ctx.getText());
         }
 
         public void exitValue(SfzParser.ValueContext ctx) {
-            logger.info("exitValue: " + ctx.getText());
+            //logger.info("exitValue: " + ctx.getText());
         }
     }
 }

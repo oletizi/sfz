@@ -30,9 +30,10 @@ opcode_stmt
 
 opcode
   :
-  ( 'sample'
-   | 'sw_default'
-   | 'sw_lokey' )
+  ( 'lokey'
+  | 'sample'
+  | 'sw_default'
+  | 'sw_lokey' )
   ;
 
 value
