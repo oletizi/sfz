@@ -1,4 +1,4 @@
-// Generated from src/main/java/org/letizi/sfz/parser/Sfz.g4 by ANTLR 4.8
+// Generated from Sfz.g4 by ANTLR 4.8
 package org.letizi.sfz.parser;
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
@@ -121,11 +121,6 @@ public class SfzParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof SfzListener ) ((SfzListener)listener).exitSfz(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SfzVisitor ) return ((SfzVisitor<? extends T>)visitor).visitSfz(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final SfzContext sfz() throws RecognitionException {
@@ -186,11 +181,6 @@ public class SfzParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof SfzListener ) ((SfzListener)listener).exitLine(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SfzVisitor ) return ((SfzVisitor<? extends T>)visitor).visitLine(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -276,11 +266,6 @@ public class SfzParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof SfzListener ) ((SfzListener)listener).exitHeader_stmt(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SfzVisitor ) return ((SfzVisitor<? extends T>)visitor).visitHeader_stmt(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final Header_stmtContext header_stmt() throws RecognitionException {
@@ -320,11 +305,6 @@ public class SfzParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof SfzListener ) ((SfzListener)listener).exitHeader(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SfzVisitor ) return ((SfzVisitor<? extends T>)visitor).visitHeader(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -380,11 +360,6 @@ public class SfzParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof SfzListener ) ((SfzListener)listener).exitOpcode_stmt(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SfzVisitor ) return ((SfzVisitor<? extends T>)visitor).visitOpcode_stmt(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -447,11 +422,6 @@ public class SfzParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof SfzListener ) ((SfzListener)listener).exitOpcode(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SfzVisitor ) return ((SfzVisitor<? extends T>)visitor).visitOpcode(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final OpcodeContext opcode() throws RecognitionException {
@@ -500,11 +470,6 @@ public class SfzParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof SfzListener ) ((SfzListener)listener).exitValue(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SfzVisitor ) return ((SfzVisitor<? extends T>)visitor).visitValue(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 

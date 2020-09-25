@@ -1,12 +1,9 @@
-.PHONY: build-antlr build clean run
-SRC_JAVA=src/main/java
-SFZ_G4=$(SRC_JAVA)/org/letizi/sfz/parser/Sfz.g4
+.PHONY: build_java build clean run
 ANTLR_LIB=/usr/local/lib/antlr-4.8-complete.jar
 PACKAGE_JAVA=org.letizi.sfz.parser
 
-default: build
+build-go:
+	antlr -Dlanguage=Go -o src/go/parser Sfz.g4
 
-build: build-antlr
-
-build-antlr:
-	antlr -visitor -package $(PACKAGE_JAVA) $(SFZ_G4)
+build-java:
+	antlr -package $(PACKAGE_JAVA) -o src/main/java/org/letizi/sfz/parser Sfz.g4
