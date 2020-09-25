@@ -1,2 +1,11 @@
 <global>
-sw_default=70
+<region>
+sample=A3.wav
+sample=..\Samples\close\c4_pp_rr3.wav
+sample=*sine
+sample=*saw
+sample=*square
+sample=*triangle
+sample=*tri
+sample=*noise
+sample=*silence

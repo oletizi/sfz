@@ -1,11 +1,65 @@
 // Define a grammar called Hello
 grammar Sfz;
-NEWLINE: ('\n'|'\r\n');
-TEXT: ('a'..'z'|'A'..'Z'|'0'..'9')+;
-OPCODE: ('a'..'z'|'A'..'Z'|'_')+;
-CONTEXT: ('a'..'z'|'A'..'Z')+;
-sfz : line+ EOF;
-line : (context | statement) NEWLINE?;
-context: '<' CONTEXT '>';
-statement: OPCODE '=' value;
-value: TEXT;
+sfz
+  : line+ EOF
+  ;
+line
+  : (header_stmt | opcode_stmt) Newline?
+  ;
+header_stmt
+  : '<' header '>'
+  ;
+header
+  :
+  (
+  'region'
+  | 'group'
+  | 'control'
+  | 'global'
+  | 'curve'
+  | 'effect'
+  | 'master'
+  | 'midi'
+  | 'sampler'
+  )
+  ;
+
+opcode_stmt
+  : opcode Whitespace? '=' Whitespace? value
+  ;
+
+opcode
+  :
+  ( 'sample'
+   | 'sw_default'
+   | 'sw_lokey' )
+  ;
+
+value
+  : Text
+  ;
+
+Text
+  : [0-9a-zA-Z_\\/.*]+
+  ;
+
+Newline
+  :
+  ( '\r' '\n'
+  | '\n' )
+  ;
+
+Whitespace
+  : [ \t]+
+  -> skip
+  ;
+
+BlockComment
+    :   '/*' .*? '*/'
+        -> skip
+    ;
+
+LineComment
+    :   '//' ~[\r\n]*
+        -> skip
+    ;
