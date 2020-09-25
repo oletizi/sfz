@@ -30,9 +30,16 @@ opcode_stmt
 
 opcode
   :
-  ( 'lokey'
+  ( 'hikey'
+  | 'hivel'
+  | 'lokey'
+  | 'lovel'
+  | 'pitch_keycenter'
   | 'sample'
+  | 'seq_length'
+  | 'pitch_keycenter'
   | 'sw_default'
+  | 'sw_hikey'
   | 'sw_lokey' )
   ;
 
