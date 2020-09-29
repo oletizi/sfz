@@ -20,8 +20,8 @@ public class SfzParser extends Parser {
 		T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, T__5=6, T__6=7, T__7=8, T__8=9, 
 		T__9=10, T__10=11, T__11=12, T__12=13, T__13=14, T__14=15, T__15=16, T__16=17, 
 		T__17=18, T__18=19, T__19=20, T__20=21, T__21=22, T__22=23, T__23=24, 
-		T__24=25, T__25=26, T__26=27, Digit=28, Text=29, Newline=30, Whitespace=31, 
-		BlockComment=32, LineComment=33;
+		T__24=25, T__25=26, T__26=27, T__27=28, Digit=29, Text=30, Newline=31, 
+		Whitespace=32, BlockComment=33, LineComment=34;
 	public static final int
 		RULE_sfz = 0, RULE_line = 1, RULE_header_stmt = 2, RULE_header = 3, RULE_opcode_stmt = 4, 
 		RULE_opcode = 5, RULE_value = 6;
@@ -36,9 +36,9 @@ public class SfzParser extends Parser {
 		return new String[] {
 			null, "'<'", "'>'", "'region'", "'group'", "'control'", "'global'", "'curve'", 
 			"'effect'", "'master'", "'midi'", "'sampler'", "'='", "'ampeg_release'", 
-			"'bend_down'", "'bend_up'", "'hikey'", "'hivel'", "'lokey'", "'lovel'", 
-			"'pitch_keycenter'", "'sample'", "'seq_length'", "'seq_position'", "'sw_default'", 
-			"'sw_hikey'", "'sw_last'", "'sw_lokey'"
+			"'bend_down'", "'bend_up'", "'hikey'", "'hivel'", "'key'", "'lokey'", 
+			"'lovel'", "'pitch_keycenter'", "'sample'", "'seq_length'", "'seq_position'", 
+			"'sw_default'", "'sw_hikey'", "'sw_last'", "'sw_lokey'"
 		};
 	}
 	private static final String[] _LITERAL_NAMES = makeLiteralNames();
@@ -46,8 +46,8 @@ public class SfzParser extends Parser {
 		return new String[] {
 			null, null, null, null, null, null, null, null, null, null, null, null, 
 			null, null, null, null, null, null, null, null, null, null, null, null, 
-			null, null, null, null, "Digit", "Text", "Newline", "Whitespace", "BlockComment", 
-			"LineComment"
+			null, null, null, null, null, "Digit", "Text", "Newline", "Whitespace", 
+			"BlockComment", "LineComment"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -143,7 +143,7 @@ public class SfzParser extends Parser {
 				setState(17); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
-			} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__0) | (1L << T__12) | (1L << T__13) | (1L << T__14) | (1L << T__15) | (1L << T__16) | (1L << T__17) | (1L << T__18) | (1L << T__19) | (1L << T__20) | (1L << T__21) | (1L << T__22) | (1L << T__23) | (1L << T__24) | (1L << T__25) | (1L << T__26))) != 0) );
+			} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__0) | (1L << T__12) | (1L << T__13) | (1L << T__14) | (1L << T__15) | (1L << T__16) | (1L << T__17) | (1L << T__18) | (1L << T__19) | (1L << T__20) | (1L << T__21) | (1L << T__22) | (1L << T__23) | (1L << T__24) | (1L << T__25) | (1L << T__26) | (1L << T__27))) != 0) );
 			setState(19);
 			match(EOF);
 			}
@@ -215,6 +215,7 @@ public class SfzParser extends Parser {
 			case T__24:
 			case T__25:
 			case T__26:
+			case T__27:
 				{
 				setState(22);
 				opcode_stmt();
@@ -433,7 +434,7 @@ public class SfzParser extends Parser {
 			{
 			setState(46);
 			_la = _input.LA(1);
-			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__12) | (1L << T__13) | (1L << T__14) | (1L << T__15) | (1L << T__16) | (1L << T__17) | (1L << T__18) | (1L << T__19) | (1L << T__20) | (1L << T__21) | (1L << T__22) | (1L << T__23) | (1L << T__24) | (1L << T__25) | (1L << T__26))) != 0)) ) {
+			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__12) | (1L << T__13) | (1L << T__14) | (1L << T__15) | (1L << T__16) | (1L << T__17) | (1L << T__18) | (1L << T__19) | (1L << T__20) | (1L << T__21) | (1L << T__22) | (1L << T__23) | (1L << T__24) | (1L << T__25) | (1L << T__26) | (1L << T__27))) != 0)) ) {
 			_errHandler.recoverInline(this);
 			}
 			else {
@@ -508,20 +509,20 @@ public class SfzParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3#8\4\2\t\2\4\3\t\3"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3$8\4\2\t\2\4\3\t\3"+
 		"\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\3\2\6\2\22\n\2\r\2\16\2\23\3"+
 		"\2\3\2\3\3\3\3\5\3\32\n\3\3\3\6\3\35\n\3\r\3\16\3\36\3\4\3\4\3\4\3\4\3"+
 		"\5\3\5\3\6\3\6\5\6)\n\6\3\6\3\6\5\6-\n\6\3\6\3\6\3\7\3\7\3\b\6\b\64\n"+
-		"\b\r\b\16\b\65\3\b\2\2\t\2\4\6\b\n\f\16\2\4\3\2\5\r\3\2\17\35\2\66\2\21"+
+		"\b\r\b\16\b\65\3\b\2\2\t\2\4\6\b\n\f\16\2\4\3\2\5\r\3\2\17\36\2\66\2\21"+
 		"\3\2\2\2\4\31\3\2\2\2\6 \3\2\2\2\b$\3\2\2\2\n&\3\2\2\2\f\60\3\2\2\2\16"+
 		"\63\3\2\2\2\20\22\5\4\3\2\21\20\3\2\2\2\22\23\3\2\2\2\23\21\3\2\2\2\23"+
 		"\24\3\2\2\2\24\25\3\2\2\2\25\26\7\2\2\3\26\3\3\2\2\2\27\32\5\6\4\2\30"+
-		"\32\5\n\6\2\31\27\3\2\2\2\31\30\3\2\2\2\32\34\3\2\2\2\33\35\7 \2\2\34"+
+		"\32\5\n\6\2\31\27\3\2\2\2\31\30\3\2\2\2\32\34\3\2\2\2\33\35\7!\2\2\34"+
 		"\33\3\2\2\2\35\36\3\2\2\2\36\34\3\2\2\2\36\37\3\2\2\2\37\5\3\2\2\2 !\7"+
 		"\3\2\2!\"\5\b\5\2\"#\7\4\2\2#\7\3\2\2\2$%\t\2\2\2%\t\3\2\2\2&(\5\f\7\2"+
-		"\')\7!\2\2(\'\3\2\2\2()\3\2\2\2)*\3\2\2\2*,\7\16\2\2+-\7!\2\2,+\3\2\2"+
-		"\2,-\3\2\2\2-.\3\2\2\2./\5\16\b\2/\13\3\2\2\2\60\61\t\3\2\2\61\r\3\2\2"+
-		"\2\62\64\7\37\2\2\63\62\3\2\2\2\64\65\3\2\2\2\65\63\3\2\2\2\65\66\3\2"+
+		"\')\7\"\2\2(\'\3\2\2\2()\3\2\2\2)*\3\2\2\2*,\7\16\2\2+-\7\"\2\2,+\3\2"+
+		"\2\2,-\3\2\2\2-.\3\2\2\2./\5\16\b\2/\13\3\2\2\2\60\61\t\3\2\2\61\r\3\2"+
+		"\2\2\62\64\7 \2\2\63\62\3\2\2\2\64\65\3\2\2\2\65\63\3\2\2\2\65\66\3\2"+
 		"\2\2\66\17\3\2\2\2\b\23\31\36(,\65";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());

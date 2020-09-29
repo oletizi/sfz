@@ -16,27 +16,27 @@ var _ = reflect.Copy
 var _ = strconv.Itoa
 
 var parserATN = []uint16{
-	3, 24715, 42794, 33075, 47597, 16764, 15335, 30598, 22884, 3, 35, 56, 4,
+	3, 24715, 42794, 33075, 47597, 16764, 15335, 30598, 22884, 3, 36, 56, 4,
 	2, 9, 2, 4, 3, 9, 3, 4, 4, 9, 4, 4, 5, 9, 5, 4, 6, 9, 6, 4, 7, 9, 7, 4,
 	8, 9, 8, 3, 2, 6, 2, 18, 10, 2, 13, 2, 14, 2, 19, 3, 2, 3, 2, 3, 3, 3,
 	3, 5, 3, 26, 10, 3, 3, 3, 6, 3, 29, 10, 3, 13, 3, 14, 3, 30, 3, 4, 3, 4,
 	3, 4, 3, 4, 3, 5, 3, 5, 3, 6, 3, 6, 5, 6, 41, 10, 6, 3, 6, 3, 6, 5, 6,
 	45, 10, 6, 3, 6, 3, 6, 3, 7, 3, 7, 3, 8, 6, 8, 52, 10, 8, 13, 8, 14, 8,
 	53, 3, 8, 2, 2, 9, 2, 4, 6, 8, 10, 12, 14, 2, 4, 3, 2, 5, 13, 3, 2, 15,
-	29, 2, 54, 2, 17, 3, 2, 2, 2, 4, 25, 3, 2, 2, 2, 6, 32, 3, 2, 2, 2, 8,
+	30, 2, 54, 2, 17, 3, 2, 2, 2, 4, 25, 3, 2, 2, 2, 6, 32, 3, 2, 2, 2, 8,
 	36, 3, 2, 2, 2, 10, 38, 3, 2, 2, 2, 12, 48, 3, 2, 2, 2, 14, 51, 3, 2, 2,
 	2, 16, 18, 5, 4, 3, 2, 17, 16, 3, 2, 2, 2, 18, 19, 3, 2, 2, 2, 19, 17,
 	3, 2, 2, 2, 19, 20, 3, 2, 2, 2, 20, 21, 3, 2, 2, 2, 21, 22, 7, 2, 2, 3,
 	22, 3, 3, 2, 2, 2, 23, 26, 5, 6, 4, 2, 24, 26, 5, 10, 6, 2, 25, 23, 3,
-	2, 2, 2, 25, 24, 3, 2, 2, 2, 26, 28, 3, 2, 2, 2, 27, 29, 7, 32, 2, 2, 28,
+	2, 2, 2, 25, 24, 3, 2, 2, 2, 26, 28, 3, 2, 2, 2, 27, 29, 7, 33, 2, 2, 28,
 	27, 3, 2, 2, 2, 29, 30, 3, 2, 2, 2, 30, 28, 3, 2, 2, 2, 30, 31, 3, 2, 2,
 	2, 31, 5, 3, 2, 2, 2, 32, 33, 7, 3, 2, 2, 33, 34, 5, 8, 5, 2, 34, 35, 7,
 	4, 2, 2, 35, 7, 3, 2, 2, 2, 36, 37, 9, 2, 2, 2, 37, 9, 3, 2, 2, 2, 38,
-	40, 5, 12, 7, 2, 39, 41, 7, 33, 2, 2, 40, 39, 3, 2, 2, 2, 40, 41, 3, 2,
-	2, 2, 41, 42, 3, 2, 2, 2, 42, 44, 7, 14, 2, 2, 43, 45, 7, 33, 2, 2, 44,
+	40, 5, 12, 7, 2, 39, 41, 7, 34, 2, 2, 40, 39, 3, 2, 2, 2, 40, 41, 3, 2,
+	2, 2, 41, 42, 3, 2, 2, 2, 42, 44, 7, 14, 2, 2, 43, 45, 7, 34, 2, 2, 44,
 	43, 3, 2, 2, 2, 44, 45, 3, 2, 2, 2, 45, 46, 3, 2, 2, 2, 46, 47, 5, 14,
 	8, 2, 47, 11, 3, 2, 2, 2, 48, 49, 9, 3, 2, 2, 49, 13, 3, 2, 2, 2, 50, 52,
-	7, 31, 2, 2, 51, 50, 3, 2, 2, 2, 52, 53, 3, 2, 2, 2, 53, 51, 3, 2, 2, 2,
+	7, 32, 2, 2, 51, 50, 3, 2, 2, 2, 52, 53, 3, 2, 2, 2, 53, 51, 3, 2, 2, 2,
 	53, 54, 3, 2, 2, 2, 54, 15, 3, 2, 2, 2, 8, 19, 25, 30, 40, 44, 53,
 }
 var deserializer = antlr.NewATNDeserializer(nil)
@@ -45,14 +45,14 @@ var deserializedATN = deserializer.DeserializeFromUInt16(parserATN)
 var literalNames = []string{
 	"", "'<'", "'>'", "'region'", "'group'", "'control'", "'global'", "'curve'",
 	"'effect'", "'master'", "'midi'", "'sampler'", "'='", "'ampeg_release'",
-	"'bend_down'", "'bend_up'", "'hikey'", "'hivel'", "'lokey'", "'lovel'",
+	"'bend_down'", "'bend_up'", "'hikey'", "'hivel'", "'key'", "'lokey'", "'lovel'",
 	"'pitch_keycenter'", "'sample'", "'seq_length'", "'seq_position'", "'sw_default'",
 	"'sw_hikey'", "'sw_last'", "'sw_lokey'",
 }
 var symbolicNames = []string{
 	"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "",
-	"", "", "", "", "", "", "", "", "", "", "Digit", "Text", "Newline", "Whitespace",
-	"BlockComment", "LineComment",
+	"", "", "", "", "", "", "", "", "", "", "", "Digit", "Text", "Newline",
+	"Whitespace", "BlockComment", "LineComment",
 }
 
 var ruleNames = []string{
@@ -114,12 +114,13 @@ const (
 	SfzParserT__24        = 25
 	SfzParserT__25        = 26
 	SfzParserT__26        = 27
-	SfzParserDigit        = 28
-	SfzParserText         = 29
-	SfzParserNewline      = 30
-	SfzParserWhitespace   = 31
-	SfzParserBlockComment = 32
-	SfzParserLineComment  = 33
+	SfzParserT__27        = 28
+	SfzParserDigit        = 29
+	SfzParserText         = 30
+	SfzParserNewline      = 31
+	SfzParserWhitespace   = 32
+	SfzParserBlockComment = 33
+	SfzParserLineComment  = 34
 )
 
 // SfzParser rules.
@@ -244,7 +245,7 @@ func (p *SfzParser) Sfz() (localctx ISfzContext) {
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
-	for ok := true; ok; ok = (((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<SfzParserT__0)|(1<<SfzParserT__12)|(1<<SfzParserT__13)|(1<<SfzParserT__14)|(1<<SfzParserT__15)|(1<<SfzParserT__16)|(1<<SfzParserT__17)|(1<<SfzParserT__18)|(1<<SfzParserT__19)|(1<<SfzParserT__20)|(1<<SfzParserT__21)|(1<<SfzParserT__22)|(1<<SfzParserT__23)|(1<<SfzParserT__24)|(1<<SfzParserT__25)|(1<<SfzParserT__26))) != 0) {
+	for ok := true; ok; ok = (((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<SfzParserT__0)|(1<<SfzParserT__12)|(1<<SfzParserT__13)|(1<<SfzParserT__14)|(1<<SfzParserT__15)|(1<<SfzParserT__16)|(1<<SfzParserT__17)|(1<<SfzParserT__18)|(1<<SfzParserT__19)|(1<<SfzParserT__20)|(1<<SfzParserT__21)|(1<<SfzParserT__22)|(1<<SfzParserT__23)|(1<<SfzParserT__24)|(1<<SfzParserT__25)|(1<<SfzParserT__26)|(1<<SfzParserT__27))) != 0) {
 		{
 			p.SetState(14)
 			p.Line()
@@ -380,7 +381,7 @@ func (p *SfzParser) Line() (localctx ILineContext) {
 			p.Header_stmt()
 		}
 
-	case SfzParserT__12, SfzParserT__13, SfzParserT__14, SfzParserT__15, SfzParserT__16, SfzParserT__17, SfzParserT__18, SfzParserT__19, SfzParserT__20, SfzParserT__21, SfzParserT__22, SfzParserT__23, SfzParserT__24, SfzParserT__25, SfzParserT__26:
+	case SfzParserT__12, SfzParserT__13, SfzParserT__14, SfzParserT__15, SfzParserT__16, SfzParserT__17, SfzParserT__18, SfzParserT__19, SfzParserT__20, SfzParserT__21, SfzParserT__22, SfzParserT__23, SfzParserT__24, SfzParserT__25, SfzParserT__26, SfzParserT__27:
 		{
 			p.SetState(22)
 			p.Opcode_stmt()
@@ -835,7 +836,7 @@ func (p *SfzParser) Opcode() (localctx IOpcodeContext) {
 		p.SetState(46)
 		_la = p.GetTokenStream().LA(1)
 
-		if !(((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<SfzParserT__12)|(1<<SfzParserT__13)|(1<<SfzParserT__14)|(1<<SfzParserT__15)|(1<<SfzParserT__16)|(1<<SfzParserT__17)|(1<<SfzParserT__18)|(1<<SfzParserT__19)|(1<<SfzParserT__20)|(1<<SfzParserT__21)|(1<<SfzParserT__22)|(1<<SfzParserT__23)|(1<<SfzParserT__24)|(1<<SfzParserT__25)|(1<<SfzParserT__26))) != 0) {
+		if !(((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<SfzParserT__12)|(1<<SfzParserT__13)|(1<<SfzParserT__14)|(1<<SfzParserT__15)|(1<<SfzParserT__16)|(1<<SfzParserT__17)|(1<<SfzParserT__18)|(1<<SfzParserT__19)|(1<<SfzParserT__20)|(1<<SfzParserT__21)|(1<<SfzParserT__22)|(1<<SfzParserT__23)|(1<<SfzParserT__24)|(1<<SfzParserT__25)|(1<<SfzParserT__26)|(1<<SfzParserT__27))) != 0) {
 			p.GetErrorHandler().RecoverInline(p)
 		} else {
 			p.GetErrorHandler().ReportMatch(p)

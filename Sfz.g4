@@ -35,6 +35,7 @@ opcode
   | 'bend_up'
   | 'hikey'
   | 'hivel'
+  | 'key'
   | 'lokey'
   | 'lovel'
   | 'pitch_keycenter'
