@@ -1,4 +1,3 @@
-// Define a grammar called Hello
 grammar Sfz;
 sfz
   : line+ EOF
@@ -53,6 +52,14 @@ value
   : Text+
   ;
 
+Comment
+  :
+  ( LineComment
+  | BlockComment
+  | HashComment
+  )
+  ;
+
 Digit
   : [0-9]
   ;
@@ -73,11 +80,16 @@ Whitespace
   ;
 
 BlockComment
-    :   '/*' .*? '*/'
-        -> skip
-    ;
+  : '/*' .*? '*/'
+  -> skip
+  ;
 
 LineComment
-    :   '//' ~[\r\n]*
-        -> skip
-    ;
+  : '//' ~[\r\n]*
+  -> skip
+  ;
+
+HashComment
+  : '#' ~[\r\n]*
+  -> skip
+  ;
