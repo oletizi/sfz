@@ -27,9 +27,7 @@ headerObject
   ;
 
 header
-  : 'global'
-  | 'group'
-  | 'region'
+  : STRING?
   ;
 
 opcodeStatement

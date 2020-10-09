@@ -1,6 +1,7 @@
 package parser
 
 import (
+	"io/ioutil"
 	"log"
 	"path/filepath"
 	"testing"
@@ -10,8 +11,9 @@ import (
 )
 
 func TestBasics(t *testing.T) {
+	log.SetOutput(ioutil.Discard)
 	ass := require.New(t)
-	sfzFile, err := filepath.Abs("../../src/test/resources/test-big.sfz")
+	sfzFile, err := filepath.Abs("../../src/test/resources/test.sfz")
 	ass.Nil(err)
 
 	log.Printf("sfzFile: %v", sfzFile)
@@ -25,32 +27,27 @@ func TestBasics(t *testing.T) {
 	p.AddParseListener(listener)
 	p.Sfz()
 
-	ass.NotNil(listener.sections)
-	ass.NotEqual(0, len(listener.sections))
-
-	for _, v := range SupportedOpcodes() {
-		ass.True(listener.opcodes[v], "opcode not found: %v", v)
+	// test for some headers
+	for _, v := range []string{"global", "group", "region"} {
+		ass.True(listener.headers[v], "Header not found: "+v)
 	}
-}
 
-type section struct {
-	header      string
-	currentPair *nvpair
-	pairs       []nvpair
-}
+	// test for some opcodes
+	for _, v := range []string{"sample", "hikey", "lokey", "group", "off_by"} {
+		ass.True(listener.opcodes[v], "Opcode not found: "+v)
+	}
 
-type nvpair struct {
-	name  string
-	value string
+	// test for some values
+	for _, v := range []string{"arco\\arco_c1_pp_down.wav", "-3600", "12"} {
+		ass.True(listener.values[v], "value not found: "+v)
+	}
 }
 
 type sfzListener struct {
 	*BaseSfzListener
-	currentSection *section
-	sections       []section
-	headers        map[string]bool
-	opcodes        map[string]bool
-	values         map[string]bool
+	headers map[string]bool
+	opcodes map[string]bool
+	values  map[string]bool
 }
 
 func New() *sfzListener {
@@ -63,32 +60,18 @@ func New() *sfzListener {
 
 func (s *sfzListener) ExitHeader(ctx *HeaderContext) {
 	header := ctx.GetText()
+	log.Printf("header: %v", header)
 	s.headers[header] = true
-
-	current := &section{header: header}
-	s.currentSection = current
-	s.sections = append(s.sections, *current)
-}
-func (s *sfzListener) ExitOpcodeStatement(ctx *OpcodeStatementContext) {
-	//log.Printf("opcode statement; %v", ctx.GetText())
 }
 
 func (s *sfzListener) ExitOpcode(ctx *OpcodeContext) {
-	log.Printf("opcode: %v", ctx.GetText())
 	opcode := ctx.GetText()
+	log.Printf("opcode: %v", opcode)
 	s.opcodes[opcode] = true
-
-	currentPair := &nvpair{name: opcode}
-	currentSection := s.currentSection
-	currentSection.currentPair = currentPair
-	currentSection.pairs = append(currentSection.pairs, *currentPair)
 }
 
 func (s *sfzListener) ExitValue(ctx *ValueContext) {
-	log.Printf("value: %v", ctx.GetText())
 	value := ctx.GetText()
+	log.Printf("value: %v", value)
 	s.values[value] = true
-
-	currentSection := s.currentSection
-	currentSection.currentPair.value = value
 }
