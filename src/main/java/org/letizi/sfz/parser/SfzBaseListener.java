@@ -28,49 +28,49 @@ public class SfzBaseListener implements SfzListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterLine(SfzParser.LineContext ctx) { }
+	@Override public void enterSfzObject(SfzParser.SfzObjectContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitLine(SfzParser.LineContext ctx) { }
+	@Override public void exitSfzObject(SfzParser.SfzObjectContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterHeader_stmt(SfzParser.Header_stmtContext ctx) { }
+	@Override public void enterHeaderObject(SfzParser.HeaderObjectContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitHeader_stmt(SfzParser.Header_stmtContext ctx) { }
+	@Override public void exitHeaderObject(SfzParser.HeaderObjectContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterHeader(SfzParser.HeaderContext ctx) { }
+	@Override public void enterHeaderName(SfzParser.HeaderNameContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitHeader(SfzParser.HeaderContext ctx) { }
+	@Override public void exitHeaderName(SfzParser.HeaderNameContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterOpcode_stmt(SfzParser.Opcode_stmtContext ctx) { }
+	@Override public void enterOpcodeStatement(SfzParser.OpcodeStatementContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitOpcode_stmt(SfzParser.Opcode_stmtContext ctx) { }
+	@Override public void exitOpcodeStatement(SfzParser.OpcodeStatementContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

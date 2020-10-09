@@ -1,95 +1,142 @@
 grammar Sfz;
+
 sfz
-  : line+ EOF
+  : sfzObject* EOF
   ;
-line
-  : (header_stmt | opcode_stmt) Newline+
-  ;
-header_stmt
-  : '<' header '>'
-  ;
-header
+
+sfzObject
   :
-  (
-  'region'
-  | 'group'
-  | 'control'
-  | 'global'
-  | 'curve'
-  | 'effect'
-  | 'master'
-  | 'midi'
-  | 'sampler'
+  ( headerObject
+    ( ( WHITESPACE
+       | NEWLINE
+       )*
+       headerObject
+    | ( WHITESPACE
+      | NEWLINE
+      )+
+      opcodeStatement
+    )*
   )
   ;
 
-opcode_stmt
-  : opcode Whitespace? '=' Whitespace? value
+headerObject
+  : LT headerName GT
+  ;
+
+headerName
+  : GLOBAL
+  | GROUP
+  | REGION
+  ;
+
+LT
+  : '<'
+  ;
+
+GT
+  : '>'
+  ;
+
+GLOBAL
+  : 'global'
+  ;
+
+GROUP
+  : 'group'
+  ;
+
+REGION
+  : 'region'
+  ;
+
+
+opcodeStatement
+  : opcode WHITESPACE? '=' WHITESPACE? value
   ;
 
 opcode
   :
-  ( 'ampeg_release'
-  | 'bend_down'
-  | 'bend_up'
-  | 'hikey'
-  | 'hivel'
-  | 'key'
-  | 'lokey'
-  | 'lovel'
-  | 'pitch_keycenter'
-  | 'sample'
-  | 'seq_length'
-  | 'seq_position'
-  | 'pitch_keycenter'
-  | 'sw_default'
-  | 'sw_hikey'
-  | 'sw_last'
-  | 'sw_lokey' )
-  ;
-
-value
-  : Text+
-  ;
-
-Comment
-  :
-  ( LineComment
-  | BlockComment
-  | HashComment
+  ( HIKEY
+  | KEY
+  | LOKEY
+  | SAMPLE
   )
   ;
 
-Digit
-  : [0-9]
-  ;
-
-Text
-  : [0-9a-zA-Z_\\/.*-]+
-  ;
-
-Newline
+value
   :
-  ( '\r' '\n'
-  | '\n' )
+  INT
   ;
 
-Whitespace
-  : [ \t]+
-  -> skip
-  ;
+HIKEY: 'hikey';
+KEY: 'key';
+LOKEY: 'lokey';
+SAMPLE: 'sample';
 
-BlockComment
-  : '/*' .*? '*/'
-  -> skip
-  ;
+INT: '0'..'9'+;
 
-LineComment
-  : '//' ~[\r\n]*
-  -> skip
-  ;
+fragment FLOAT: (INT | INT? '.' INT);
 
-HashComment
-  : '#' ~[\r\n]*
-  -> skip
-  ;
+fragment Text: ~[\n\r]+;
+
+NEWLINE: ('\r\n' | '\n' | '\r');
+
+WHITESPACE: [ \t];
+
+BLOCK_COMMENT: '/*' .*? '*/' -> skip;
+
+LINE_COMMENT: '//' ~[\r\n]* -> skip;
+
+HASH_COMMENT: '#' ~[\r\n]* -> skip;
+
+//header_phrase
+//  : '<'? 'region' '>'?
+//  ;
+
+//header
+//  :
+//  ( 'region'
+//  | 'group'
+//  | 'control'
+//  | 'global'
+//  | 'curve'
+//  | 'effect'
+//  | 'master'
+//  | 'midi'
+//  | 'sampler'
+//  )
+//  ;
+
+//opcode_phrase
+//  :
+//  ( int_opcode WHITESPACE? '=' WHITESPACE? int_value
+//  | float_opcode WHITESPACE? '=' WHITESPACE? float_value
+//  | text_opcode WHITESPACE? '=' WHITESPACE? text_value
+//  )
+//  ;
+//
+//int_opcode
+//  :
+//  ( 'hikey'
+//  | 'key'
+//  | 'lokey'
+//  )
+//  ;
+//
+//float_opcode
+//  :
+//  ( 'ampeg_release'  )
+//  ;
+//
+//text_opcode
+//  :
+//  ('sample')
+//  ;
+//
+//int_value: INT;
+//
+//float_value: FLOAT;
+//
+//text_value: TEXT;
+
+

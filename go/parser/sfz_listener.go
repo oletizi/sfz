@@ -11,17 +11,17 @@ type SfzListener interface {
 	// EnterSfz is called when entering the sfz production.
 	EnterSfz(c *SfzContext)
 
-	// EnterLine is called when entering the line production.
-	EnterLine(c *LineContext)
+	// EnterSfzObject is called when entering the sfzObject production.
+	EnterSfzObject(c *SfzObjectContext)
 
-	// EnterHeader_stmt is called when entering the header_stmt production.
-	EnterHeader_stmt(c *Header_stmtContext)
+	// EnterHeaderObject is called when entering the headerObject production.
+	EnterHeaderObject(c *HeaderObjectContext)
 
-	// EnterHeader is called when entering the header production.
-	EnterHeader(c *HeaderContext)
+	// EnterHeaderName is called when entering the headerName production.
+	EnterHeaderName(c *HeaderNameContext)
 
-	// EnterOpcode_stmt is called when entering the opcode_stmt production.
-	EnterOpcode_stmt(c *Opcode_stmtContext)
+	// EnterOpcodeStatement is called when entering the opcodeStatement production.
+	EnterOpcodeStatement(c *OpcodeStatementContext)
 
 	// EnterOpcode is called when entering the opcode production.
 	EnterOpcode(c *OpcodeContext)
@@ -32,17 +32,17 @@ type SfzListener interface {
 	// ExitSfz is called when exiting the sfz production.
 	ExitSfz(c *SfzContext)
 
-	// ExitLine is called when exiting the line production.
-	ExitLine(c *LineContext)
+	// ExitSfzObject is called when exiting the sfzObject production.
+	ExitSfzObject(c *SfzObjectContext)
 
-	// ExitHeader_stmt is called when exiting the header_stmt production.
-	ExitHeader_stmt(c *Header_stmtContext)
+	// ExitHeaderObject is called when exiting the headerObject production.
+	ExitHeaderObject(c *HeaderObjectContext)
 
-	// ExitHeader is called when exiting the header production.
-	ExitHeader(c *HeaderContext)
+	// ExitHeaderName is called when exiting the headerName production.
+	ExitHeaderName(c *HeaderNameContext)
 
-	// ExitOpcode_stmt is called when exiting the opcode_stmt production.
-	ExitOpcode_stmt(c *Opcode_stmtContext)
+	// ExitOpcodeStatement is called when exiting the opcodeStatement production.
+	ExitOpcodeStatement(c *OpcodeStatementContext)
 
 	// ExitOpcode is called when exiting the opcode production.
 	ExitOpcode(c *OpcodeContext)

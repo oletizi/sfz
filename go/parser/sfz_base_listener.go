@@ -27,29 +27,29 @@ func (s *BaseSfzListener) EnterSfz(ctx *SfzContext) {}
 // ExitSfz is called when production sfz is exited.
 func (s *BaseSfzListener) ExitSfz(ctx *SfzContext) {}
 
-// EnterLine is called when production line is entered.
-func (s *BaseSfzListener) EnterLine(ctx *LineContext) {}
+// EnterSfzObject is called when production sfzObject is entered.
+func (s *BaseSfzListener) EnterSfzObject(ctx *SfzObjectContext) {}
 
-// ExitLine is called when production line is exited.
-func (s *BaseSfzListener) ExitLine(ctx *LineContext) {}
+// ExitSfzObject is called when production sfzObject is exited.
+func (s *BaseSfzListener) ExitSfzObject(ctx *SfzObjectContext) {}
 
-// EnterHeader_stmt is called when production header_stmt is entered.
-func (s *BaseSfzListener) EnterHeader_stmt(ctx *Header_stmtContext) {}
+// EnterHeaderObject is called when production headerObject is entered.
+func (s *BaseSfzListener) EnterHeaderObject(ctx *HeaderObjectContext) {}
 
-// ExitHeader_stmt is called when production header_stmt is exited.
-func (s *BaseSfzListener) ExitHeader_stmt(ctx *Header_stmtContext) {}
+// ExitHeaderObject is called when production headerObject is exited.
+func (s *BaseSfzListener) ExitHeaderObject(ctx *HeaderObjectContext) {}
 
-// EnterHeader is called when production header is entered.
-func (s *BaseSfzListener) EnterHeader(ctx *HeaderContext) {}
+// EnterHeaderName is called when production headerName is entered.
+func (s *BaseSfzListener) EnterHeaderName(ctx *HeaderNameContext) {}
 
-// ExitHeader is called when production header is exited.
-func (s *BaseSfzListener) ExitHeader(ctx *HeaderContext) {}
+// ExitHeaderName is called when production headerName is exited.
+func (s *BaseSfzListener) ExitHeaderName(ctx *HeaderNameContext) {}
 
-// EnterOpcode_stmt is called when production opcode_stmt is entered.
-func (s *BaseSfzListener) EnterOpcode_stmt(ctx *Opcode_stmtContext) {}
+// EnterOpcodeStatement is called when production opcodeStatement is entered.
+func (s *BaseSfzListener) EnterOpcodeStatement(ctx *OpcodeStatementContext) {}
 
-// ExitOpcode_stmt is called when production opcode_stmt is exited.
-func (s *BaseSfzListener) ExitOpcode_stmt(ctx *Opcode_stmtContext) {}
+// ExitOpcodeStatement is called when production opcodeStatement is exited.
+func (s *BaseSfzListener) ExitOpcodeStatement(ctx *OpcodeStatementContext) {}
 
 // EnterOpcode is called when production opcode is entered.
 func (s *BaseSfzListener) EnterOpcode(ctx *OpcodeContext) {}

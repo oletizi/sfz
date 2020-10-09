@@ -18,45 +18,45 @@ public interface SfzListener extends ParseTreeListener {
 	 */
 	void exitSfz(SfzParser.SfzContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SfzParser#line}.
+	 * Enter a parse tree produced by {@link SfzParser#sfzObject}.
 	 * @param ctx the parse tree
 	 */
-	void enterLine(SfzParser.LineContext ctx);
+	void enterSfzObject(SfzParser.SfzObjectContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SfzParser#line}.
+	 * Exit a parse tree produced by {@link SfzParser#sfzObject}.
 	 * @param ctx the parse tree
 	 */
-	void exitLine(SfzParser.LineContext ctx);
+	void exitSfzObject(SfzParser.SfzObjectContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SfzParser#header_stmt}.
+	 * Enter a parse tree produced by {@link SfzParser#headerObject}.
 	 * @param ctx the parse tree
 	 */
-	void enterHeader_stmt(SfzParser.Header_stmtContext ctx);
+	void enterHeaderObject(SfzParser.HeaderObjectContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SfzParser#header_stmt}.
+	 * Exit a parse tree produced by {@link SfzParser#headerObject}.
 	 * @param ctx the parse tree
 	 */
-	void exitHeader_stmt(SfzParser.Header_stmtContext ctx);
+	void exitHeaderObject(SfzParser.HeaderObjectContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SfzParser#header}.
+	 * Enter a parse tree produced by {@link SfzParser#headerName}.
 	 * @param ctx the parse tree
 	 */
-	void enterHeader(SfzParser.HeaderContext ctx);
+	void enterHeaderName(SfzParser.HeaderNameContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SfzParser#header}.
+	 * Exit a parse tree produced by {@link SfzParser#headerName}.
 	 * @param ctx the parse tree
 	 */
-	void exitHeader(SfzParser.HeaderContext ctx);
+	void exitHeaderName(SfzParser.HeaderNameContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SfzParser#opcode_stmt}.
+	 * Enter a parse tree produced by {@link SfzParser#opcodeStatement}.
 	 * @param ctx the parse tree
 	 */
-	void enterOpcode_stmt(SfzParser.Opcode_stmtContext ctx);
+	void enterOpcodeStatement(SfzParser.OpcodeStatementContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SfzParser#opcode_stmt}.
+	 * Exit a parse tree produced by {@link SfzParser#opcodeStatement}.
 	 * @param ctx the parse tree
 	 */
-	void exitOpcode_stmt(SfzParser.Opcode_stmtContext ctx);
+	void exitOpcodeStatement(SfzParser.OpcodeStatementContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link SfzParser#opcode}.
 	 * @param ctx the parse tree
