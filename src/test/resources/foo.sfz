@@ -1,0 +1,9 @@
+<global>
+
+<group>
+
+<region>
+hikey=45
+key=44
+lokey=43
+ampeg_release=1.5
