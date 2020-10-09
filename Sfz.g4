@@ -33,16 +33,16 @@ header
   ;
 
 opcodeStatement
-  : opcode '=' STRING
+  : opcode '=' value
   ;
 
 opcode
   : STRING?
   ;
 
-//value
-//  : STRING?
-//  ;
+value
+  : STRING?
+  ;
 
 STRING
   : ~[=<> \t\n\r]+

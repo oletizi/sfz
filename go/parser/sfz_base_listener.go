@@ -56,3 +56,9 @@ func (s *BaseSfzListener) EnterOpcode(ctx *OpcodeContext) {}
 
 // ExitOpcode is called when production opcode is exited.
 func (s *BaseSfzListener) ExitOpcode(ctx *OpcodeContext) {}
+
+// EnterValue is called when production value is entered.
+func (s *BaseSfzListener) EnterValue(ctx *ValueContext) {}
+
+// ExitValue is called when production value is exited.
+func (s *BaseSfzListener) ExitValue(ctx *ValueContext) {}

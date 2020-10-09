@@ -70,7 +70,7 @@ func (s *sfzListener) ExitHeader(ctx *HeaderContext) {
 	s.sections = append(s.sections, *current)
 }
 func (s *sfzListener) ExitOpcodeStatement(ctx *OpcodeStatementContext) {
-	log.Printf("opcode statement; %v", ctx.GetText())
+	//log.Printf("opcode statement; %v", ctx.GetText())
 }
 
 func (s *sfzListener) ExitOpcode(ctx *OpcodeContext) {
@@ -84,10 +84,11 @@ func (s *sfzListener) ExitOpcode(ctx *OpcodeContext) {
 	currentSection.pairs = append(currentSection.pairs, *currentPair)
 }
 
-//func (s *sfzListener) ExitValue(ctx *ValueContext) {
-//	value := ctx.GetText()
-//	s.values[value] = true
-//
-//	currentSection := s.currentSection
-//	currentSection.currentPair.value = value
-//}
+func (s *sfzListener) ExitValue(ctx *ValueContext) {
+	log.Printf("value: %v", ctx.GetText())
+	value := ctx.GetText()
+	s.values[value] = true
+
+	currentSection := s.currentSection
+	currentSection.currentPair.value = value
+}
