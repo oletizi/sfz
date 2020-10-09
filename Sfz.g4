@@ -56,7 +56,8 @@ opcodeStatement
 
 opcode
   :
-  ( HIKEY
+  ( AMPEG_RELEASE
+  | HIKEY
   | KEY
   | LOKEY
   | SAMPLE
@@ -65,9 +66,12 @@ opcode
 
 value
   :
-  INT
+  ( INT
+  | FLOAT
+  )
   ;
 
+AMPEG_RELEASE: 'ampeg_release';
 HIKEY: 'hikey';
 KEY: 'key';
 LOKEY: 'lokey';
@@ -75,9 +79,15 @@ SAMPLE: 'sample';
 
 INT: '0'..'9'+;
 
-fragment FLOAT: (INT | INT? '.' INT);
+FLOAT: (INT | INT? '.' INT);
 
-fragment Text: ~[\n\r]+;
+//FILE_PATH:
+//  ( FILENAME
+//  | DIRNAME * SEPARATOR
+//  )
+//  ;
+
+//Text: ~[\n\r]+;
 
 NEWLINE: ('\r\n' | '\n' | '\r');
 

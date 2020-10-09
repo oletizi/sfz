@@ -31,8 +31,16 @@ type sfzListener struct {
 	*BaseSfzListener
 }
 
-func (s sfzListener) ExitEveryRule(ctx antlr.ParserRuleContext) {
-	log.Printf("Exit rule [%v], [%v]: %v", ctx.GetRuleIndex(), ctx.GetAltNumber(), ctx.GetText())
+func (s *sfzListener) ExitHeaderName(ctx *HeaderNameContext) {
+	log.Printf("Header: %v", ctx.GetText())
+}
+
+func (s *sfzListener) ExitOpcode(ctx *OpcodeContext) {
+	log.Printf("opcode: %v", ctx.GetText())
+}
+
+func (s *sfzListener) ExitValue(ctx *ValueContext) {
+	log.Printf("value: %v", ctx.GetText())
 }
 
 //func (s sfzListener) ExitHeader(c *HeaderContext) {
