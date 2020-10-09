@@ -8,3 +8,9 @@ key=44
 lokey=43
 ampeg_release=1.5
 sample=foo.mp3
+
+<region>
+lokey=46
+key=47
+hikey=48
+sample=./samples/foo.aiff
