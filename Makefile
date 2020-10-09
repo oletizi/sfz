@@ -15,7 +15,7 @@ build-java:
 test: test-java test-go
 
 test-go: build-go
-	go test ./go/... -v
+	cd go && go test ./... -v
 
 test-java:
 	mvn test

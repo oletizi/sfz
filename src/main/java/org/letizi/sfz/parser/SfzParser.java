@@ -17,9 +17,8 @@ public class SfzParser extends Parser {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, T__5=6, IDENTIFIER=7, GENERATOR=8, 
-		INT=9, FLOAT=10, PATH=11, NEWLINE=12, WHITESPACE=13, BLOCK_COMMENT=14, 
-		LINE_COMMENT=15, HASH_COMMENT=16;
+		T__0=1, T__1=2, T__2=3, STRING=4, NEWLINE=5, WHITESPACE=6, BLOCK_COMMENT=7, 
+		LINE_COMMENT=8, HASH_COMMENT=9;
 	public static final int
 		RULE_sfz = 0, RULE_sfzObject = 1, RULE_headerObject = 2, RULE_header = 3, 
 		RULE_opcodeStatement = 4, RULE_opcode = 5, RULE_value = 6;
@@ -33,15 +32,14 @@ public class SfzParser extends Parser {
 
 	private static String[] makeLiteralNames() {
 		return new String[] {
-			null, "'<'", "'>'", "'global'", "'group'", "'region'", "'='"
+			null, "'<'", "'>'", "'='"
 		};
 	}
 	private static final String[] _LITERAL_NAMES = makeLiteralNames();
 	private static String[] makeSymbolicNames() {
 		return new String[] {
-			null, null, null, null, null, null, null, "IDENTIFIER", "GENERATOR", 
-			"INT", "FLOAT", "PATH", "NEWLINE", "WHITESPACE", "BLOCK_COMMENT", "LINE_COMMENT", 
-			"HASH_COMMENT"
+			null, null, null, null, "STRING", "NEWLINE", "WHITESPACE", "BLOCK_COMMENT", 
+			"LINE_COMMENT", "HASH_COMMENT"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -351,6 +349,7 @@ public class SfzParser extends Parser {
 	}
 
 	public static class HeaderContext extends ParserRuleContext {
+		public TerminalNode STRING() { return getToken(SfzParser.STRING, 0); }
 		public HeaderContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -372,16 +371,16 @@ public class SfzParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(51);
+			setState(52);
+			_errHandler.sync(this);
 			_la = _input.LA(1);
-			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__2) | (1L << T__3) | (1L << T__4))) != 0)) ) {
-			_errHandler.recoverInline(this);
+			if (_la==STRING) {
+				{
+				setState(51);
+				match(STRING);
+				}
 			}
-			else {
-				if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
-				_errHandler.reportMatch(this);
-				consume();
-			}
+
 			}
 		}
 		catch (RecognitionException re) {
@@ -402,10 +401,6 @@ public class SfzParser extends Parser {
 		public ValueContext value() {
 			return getRuleContext(ValueContext.class,0);
 		}
-		public List<TerminalNode> WHITESPACE() { return getTokens(SfzParser.WHITESPACE); }
-		public TerminalNode WHITESPACE(int i) {
-			return getToken(SfzParser.WHITESPACE, i);
-		}
 		public OpcodeStatementContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -423,35 +418,14 @@ public class SfzParser extends Parser {
 	public final OpcodeStatementContext opcodeStatement() throws RecognitionException {
 		OpcodeStatementContext _localctx = new OpcodeStatementContext(_ctx, getState());
 		enterRule(_localctx, 8, RULE_opcodeStatement);
-		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(53);
+			setState(54);
 			opcode();
 			setState(55);
-			_errHandler.sync(this);
-			_la = _input.LA(1);
-			if (_la==WHITESPACE) {
-				{
-				setState(54);
-				match(WHITESPACE);
-				}
-			}
-
-			setState(57);
-			match(T__5);
-			setState(59);
-			_errHandler.sync(this);
-			_la = _input.LA(1);
-			if (_la==WHITESPACE) {
-				{
-				setState(58);
-				match(WHITESPACE);
-				}
-			}
-
-			setState(61);
+			match(T__2);
+			setState(56);
 			value();
 			}
 		}
@@ -467,7 +441,7 @@ public class SfzParser extends Parser {
 	}
 
 	public static class OpcodeContext extends ParserRuleContext {
-		public TerminalNode IDENTIFIER() { return getToken(SfzParser.IDENTIFIER, 0); }
+		public TerminalNode STRING() { return getToken(SfzParser.STRING, 0); }
 		public OpcodeContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -485,11 +459,20 @@ public class SfzParser extends Parser {
 	public final OpcodeContext opcode() throws RecognitionException {
 		OpcodeContext _localctx = new OpcodeContext(_ctx, getState());
 		enterRule(_localctx, 10, RULE_opcode);
+		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(63);
-			match(IDENTIFIER);
+			setState(59);
+			_errHandler.sync(this);
+			_la = _input.LA(1);
+			if (_la==STRING) {
+				{
+				setState(58);
+				match(STRING);
+				}
+			}
+
 			}
 		}
 		catch (RecognitionException re) {
@@ -504,10 +487,7 @@ public class SfzParser extends Parser {
 	}
 
 	public static class ValueContext extends ParserRuleContext {
-		public TerminalNode INT() { return getToken(SfzParser.INT, 0); }
-		public TerminalNode FLOAT() { return getToken(SfzParser.FLOAT, 0); }
-		public TerminalNode PATH() { return getToken(SfzParser.PATH, 0); }
-		public TerminalNode GENERATOR() { return getToken(SfzParser.GENERATOR, 0); }
+		public TerminalNode STRING() { return getToken(SfzParser.STRING, 0); }
 		public ValueContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -529,16 +509,16 @@ public class SfzParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(65);
+			setState(62);
+			_errHandler.sync(this);
 			_la = _input.LA(1);
-			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << GENERATOR) | (1L << INT) | (1L << FLOAT) | (1L << PATH))) != 0)) ) {
-			_errHandler.recoverInline(this);
+			if (_la==STRING) {
+				{
+				setState(61);
+				match(STRING);
+				}
 			}
-			else {
-				if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
-				_errHandler.reportMatch(this);
-				consume();
-			}
+
 			}
 		}
 		catch (RecognitionException re) {
@@ -553,24 +533,24 @@ public class SfzParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\22F\4\2\t\2\4\3\t"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\13C\4\2\t\2\4\3\t"+
 		"\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\3\2\7\2\22\n\2\f\2\16\2\25"+
 		"\13\2\3\2\3\2\3\3\7\3\32\n\3\f\3\16\3\35\13\3\3\3\3\3\7\3!\n\3\f\3\16"+
 		"\3$\13\3\3\3\3\3\6\3(\n\3\r\3\16\3)\3\3\7\3-\n\3\f\3\16\3\60\13\3\3\4"+
-		"\3\4\3\4\3\4\3\5\3\5\3\6\3\6\5\6:\n\6\3\6\3\6\5\6>\n\6\3\6\3\6\3\7\3\7"+
-		"\3\b\3\b\3\b\2\2\t\2\4\6\b\n\f\16\2\5\3\2\16\17\3\2\5\7\3\2\n\r\2F\2\23"+
-		"\3\2\2\2\4\33\3\2\2\2\6\61\3\2\2\2\b\65\3\2\2\2\n\67\3\2\2\2\fA\3\2\2"+
-		"\2\16C\3\2\2\2\20\22\5\4\3\2\21\20\3\2\2\2\22\25\3\2\2\2\23\21\3\2\2\2"+
-		"\23\24\3\2\2\2\24\26\3\2\2\2\25\23\3\2\2\2\26\27\7\2\2\3\27\3\3\2\2\2"+
-		"\30\32\t\2\2\2\31\30\3\2\2\2\32\35\3\2\2\2\33\31\3\2\2\2\33\34\3\2\2\2"+
-		"\34\36\3\2\2\2\35\33\3\2\2\2\36.\5\6\4\2\37!\t\2\2\2 \37\3\2\2\2!$\3\2"+
-		"\2\2\" \3\2\2\2\"#\3\2\2\2#%\3\2\2\2$\"\3\2\2\2%-\5\6\4\2&(\t\2\2\2\'"+
-		"&\3\2\2\2()\3\2\2\2)\'\3\2\2\2)*\3\2\2\2*+\3\2\2\2+-\5\n\6\2,\"\3\2\2"+
-		"\2,\'\3\2\2\2-\60\3\2\2\2.,\3\2\2\2./\3\2\2\2/\5\3\2\2\2\60.\3\2\2\2\61"+
-		"\62\7\3\2\2\62\63\5\b\5\2\63\64\7\4\2\2\64\7\3\2\2\2\65\66\t\3\2\2\66"+
-		"\t\3\2\2\2\679\5\f\7\28:\7\17\2\298\3\2\2\29:\3\2\2\2:;\3\2\2\2;=\7\b"+
-		"\2\2<>\7\17\2\2=<\3\2\2\2=>\3\2\2\2>?\3\2\2\2?@\5\16\b\2@\13\3\2\2\2A"+
-		"B\7\t\2\2B\r\3\2\2\2CD\t\4\2\2D\17\3\2\2\2\n\23\33\"),.9=";
+		"\3\4\3\4\3\4\3\5\5\5\67\n\5\3\6\3\6\3\6\3\6\3\7\5\7>\n\7\3\b\5\bA\n\b"+
+		"\3\b\2\2\t\2\4\6\b\n\f\16\2\3\3\2\7\b\2D\2\23\3\2\2\2\4\33\3\2\2\2\6\61"+
+		"\3\2\2\2\b\66\3\2\2\2\n8\3\2\2\2\f=\3\2\2\2\16@\3\2\2\2\20\22\5\4\3\2"+
+		"\21\20\3\2\2\2\22\25\3\2\2\2\23\21\3\2\2\2\23\24\3\2\2\2\24\26\3\2\2\2"+
+		"\25\23\3\2\2\2\26\27\7\2\2\3\27\3\3\2\2\2\30\32\t\2\2\2\31\30\3\2\2\2"+
+		"\32\35\3\2\2\2\33\31\3\2\2\2\33\34\3\2\2\2\34\36\3\2\2\2\35\33\3\2\2\2"+
+		"\36.\5\6\4\2\37!\t\2\2\2 \37\3\2\2\2!$\3\2\2\2\" \3\2\2\2\"#\3\2\2\2#"+
+		"%\3\2\2\2$\"\3\2\2\2%-\5\6\4\2&(\t\2\2\2\'&\3\2\2\2()\3\2\2\2)\'\3\2\2"+
+		"\2)*\3\2\2\2*+\3\2\2\2+-\5\n\6\2,\"\3\2\2\2,\'\3\2\2\2-\60\3\2\2\2.,\3"+
+		"\2\2\2./\3\2\2\2/\5\3\2\2\2\60.\3\2\2\2\61\62\7\3\2\2\62\63\5\b\5\2\63"+
+		"\64\7\4\2\2\64\7\3\2\2\2\65\67\7\6\2\2\66\65\3\2\2\2\66\67\3\2\2\2\67"+
+		"\t\3\2\2\289\5\f\7\29:\7\5\2\2:;\5\16\b\2;\13\3\2\2\2<>\7\6\2\2=<\3\2"+
+		"\2\2=>\3\2\2\2>\r\3\2\2\2?A\7\6\2\2@?\3\2\2\2@A\3\2\2\2A\17\3\2\2\2\13"+
+		"\23\33\"),.\66=@";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {
