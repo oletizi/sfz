@@ -16,7 +16,7 @@ var _ = reflect.Copy
 var _ = strconv.Itoa
 
 var parserATN = []uint16{
-	3, 24715, 42794, 33075, 47597, 16764, 15335, 30598, 22884, 3, 21, 70, 4,
+	3, 24715, 42794, 33075, 47597, 16764, 15335, 30598, 22884, 3, 28, 70, 4,
 	2, 9, 2, 4, 3, 9, 3, 4, 4, 9, 4, 4, 5, 9, 5, 4, 6, 9, 6, 4, 7, 9, 7, 4,
 	8, 9, 8, 3, 2, 7, 2, 18, 10, 2, 12, 2, 14, 2, 21, 11, 2, 3, 2, 3, 2, 3,
 	3, 7, 3, 26, 10, 3, 12, 3, 14, 3, 29, 11, 3, 3, 3, 3, 3, 7, 3, 33, 10,
@@ -24,7 +24,7 @@ var parserATN = []uint16{
 	41, 3, 3, 7, 3, 45, 10, 3, 12, 3, 14, 3, 48, 11, 3, 3, 4, 3, 4, 3, 4, 3,
 	4, 3, 5, 3, 5, 3, 6, 3, 6, 5, 6, 58, 10, 6, 3, 6, 3, 6, 5, 6, 62, 10, 6,
 	3, 6, 3, 6, 3, 7, 3, 7, 3, 8, 3, 8, 3, 8, 2, 2, 9, 2, 4, 6, 8, 10, 12,
-	14, 2, 6, 3, 2, 17, 18, 3, 2, 5, 7, 3, 2, 9, 13, 3, 2, 14, 16, 2, 70, 2,
+	14, 2, 6, 3, 2, 24, 25, 3, 2, 5, 7, 3, 2, 9, 19, 3, 2, 20, 23, 2, 70, 2,
 	19, 3, 2, 2, 2, 4, 27, 3, 2, 2, 2, 6, 49, 3, 2, 2, 2, 8, 53, 3, 2, 2, 2,
 	10, 55, 3, 2, 2, 2, 12, 65, 3, 2, 2, 2, 14, 67, 3, 2, 2, 2, 16, 18, 5,
 	4, 3, 2, 17, 16, 3, 2, 2, 2, 18, 21, 3, 2, 2, 2, 19, 17, 3, 2, 2, 2, 19,
@@ -39,9 +39,9 @@ var parserATN = []uint16{
 	39, 3, 2, 2, 2, 45, 48, 3, 2, 2, 2, 46, 44, 3, 2, 2, 2, 46, 47, 3, 2, 2,
 	2, 47, 5, 3, 2, 2, 2, 48, 46, 3, 2, 2, 2, 49, 50, 7, 3, 2, 2, 50, 51, 5,
 	8, 5, 2, 51, 52, 7, 4, 2, 2, 52, 7, 3, 2, 2, 2, 53, 54, 9, 3, 2, 2, 54,
-	9, 3, 2, 2, 2, 55, 57, 5, 12, 7, 2, 56, 58, 7, 18, 2, 2, 57, 56, 3, 2,
+	9, 3, 2, 2, 2, 55, 57, 5, 12, 7, 2, 56, 58, 7, 25, 2, 2, 57, 56, 3, 2,
 	2, 2, 57, 58, 3, 2, 2, 2, 58, 59, 3, 2, 2, 2, 59, 61, 7, 8, 2, 2, 60, 62,
-	7, 18, 2, 2, 61, 60, 3, 2, 2, 2, 61, 62, 3, 2, 2, 2, 62, 63, 3, 2, 2, 2,
+	7, 25, 2, 2, 61, 60, 3, 2, 2, 2, 61, 62, 3, 2, 2, 2, 62, 63, 3, 2, 2, 2,
 	63, 64, 5, 14, 8, 2, 64, 11, 3, 2, 2, 2, 65, 66, 9, 4, 2, 2, 66, 13, 3,
 	2, 2, 2, 67, 68, 9, 5, 2, 2, 68, 15, 3, 2, 2, 2, 10, 19, 27, 34, 41, 44,
 	46, 57, 61,
@@ -51,11 +51,13 @@ var deserializedATN = deserializer.DeserializeFromUInt16(parserATN)
 
 var literalNames = []string{
 	"", "'<'", "'>'", "'global'", "'group'", "'region'", "'='", "'ampeg_release'",
-	"'hikey'", "'key'", "'lokey'", "'sample'",
+	"'bend_down'", "'bend_up'", "'hikey'", "'key'", "'lokey'", "'sample'",
+	"'sw_default'", "'sw_hikey'", "'sw_last'", "'sw_lokey'",
 }
 var symbolicNames = []string{
-	"", "", "", "", "", "", "", "", "", "", "", "", "INT", "FLOAT", "PATH",
-	"NEWLINE", "WHITESPACE", "BLOCK_COMMENT", "LINE_COMMENT", "HASH_COMMENT",
+	"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "",
+	"GENERATOR", "INT", "FLOAT", "PATH", "NEWLINE", "WHITESPACE", "BLOCK_COMMENT",
+	"LINE_COMMENT", "HASH_COMMENT",
 }
 
 var ruleNames = []string{
@@ -102,14 +104,21 @@ const (
 	SfzParserT__8          = 9
 	SfzParserT__9          = 10
 	SfzParserT__10         = 11
-	SfzParserINT           = 12
-	SfzParserFLOAT         = 13
-	SfzParserPATH          = 14
-	SfzParserNEWLINE       = 15
-	SfzParserWHITESPACE    = 16
-	SfzParserBLOCK_COMMENT = 17
-	SfzParserLINE_COMMENT  = 18
-	SfzParserHASH_COMMENT  = 19
+	SfzParserT__11         = 12
+	SfzParserT__12         = 13
+	SfzParserT__13         = 14
+	SfzParserT__14         = 15
+	SfzParserT__15         = 16
+	SfzParserT__16         = 17
+	SfzParserGENERATOR     = 18
+	SfzParserINT           = 19
+	SfzParserFLOAT         = 20
+	SfzParserPATH          = 21
+	SfzParserNEWLINE       = 22
+	SfzParserWHITESPACE    = 23
+	SfzParserBLOCK_COMMENT = 24
+	SfzParserLINE_COMMENT  = 25
+	SfzParserHASH_COMMENT  = 26
 )
 
 // SfzParser rules.
@@ -924,7 +933,7 @@ func (p *SfzParser) Opcode() (localctx IOpcodeContext) {
 		p.SetState(63)
 		_la = p.GetTokenStream().LA(1)
 
-		if !(((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<SfzParserT__6)|(1<<SfzParserT__7)|(1<<SfzParserT__8)|(1<<SfzParserT__9)|(1<<SfzParserT__10))) != 0) {
+		if !(((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<SfzParserT__6)|(1<<SfzParserT__7)|(1<<SfzParserT__8)|(1<<SfzParserT__9)|(1<<SfzParserT__10)|(1<<SfzParserT__11)|(1<<SfzParserT__12)|(1<<SfzParserT__13)|(1<<SfzParserT__14)|(1<<SfzParserT__15)|(1<<SfzParserT__16))) != 0) {
 			p.GetErrorHandler().RecoverInline(p)
 		} else {
 			p.GetErrorHandler().ReportMatch(p)
@@ -985,6 +994,10 @@ func (s *ValueContext) PATH() antlr.TerminalNode {
 	return s.GetToken(SfzParserPATH, 0)
 }
 
+func (s *ValueContext) GENERATOR() antlr.TerminalNode {
+	return s.GetToken(SfzParserGENERATOR, 0)
+}
+
 func (s *ValueContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
@@ -1031,7 +1044,7 @@ func (p *SfzParser) Value() (localctx IValueContext) {
 		p.SetState(65)
 		_la = p.GetTokenStream().LA(1)
 
-		if !(((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<SfzParserINT)|(1<<SfzParserFLOAT)|(1<<SfzParserPATH))) != 0) {
+		if !(((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<SfzParserGENERATOR)|(1<<SfzParserINT)|(1<<SfzParserFLOAT)|(1<<SfzParserPATH))) != 0) {
 			p.GetErrorHandler().RecoverInline(p)
 		} else {
 			p.GetErrorHandler().ReportMatch(p)

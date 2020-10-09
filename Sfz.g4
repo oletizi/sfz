@@ -39,10 +39,16 @@ opcodeStatement
 opcode
   :
   ( 'ampeg_release'
+  | 'bend_down'
+  | 'bend_up'
   | 'hikey'
   | 'key'
   | 'lokey'
   | 'sample'
+  | 'sw_default'
+  | 'sw_hikey'
+  | 'sw_last'
+  | 'sw_lokey'
   )
   ;
 
@@ -51,9 +57,14 @@ value
   ( INT
   | FLOAT
   | PATH
+  | GENERATOR
   )
   ;
 
+GENERATOR
+  :
+  '*' [a-z]+
+  ;
 
 INT: '0'..'9'+;
 
