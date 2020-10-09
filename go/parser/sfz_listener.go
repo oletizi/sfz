@@ -17,8 +17,8 @@ type SfzListener interface {
 	// EnterHeaderObject is called when entering the headerObject production.
 	EnterHeaderObject(c *HeaderObjectContext)
 
-	// EnterHeaderName is called when entering the headerName production.
-	EnterHeaderName(c *HeaderNameContext)
+	// EnterHeader is called when entering the header production.
+	EnterHeader(c *HeaderContext)
 
 	// EnterOpcodeStatement is called when entering the opcodeStatement production.
 	EnterOpcodeStatement(c *OpcodeStatementContext)
@@ -38,8 +38,8 @@ type SfzListener interface {
 	// ExitHeaderObject is called when exiting the headerObject production.
 	ExitHeaderObject(c *HeaderObjectContext)
 
-	// ExitHeaderName is called when exiting the headerName production.
-	ExitHeaderName(c *HeaderNameContext)
+	// ExitHeader is called when exiting the header production.
+	ExitHeader(c *HeaderContext)
 
 	// ExitOpcodeStatement is called when exiting the opcodeStatement production.
 	ExitOpcodeStatement(c *OpcodeStatementContext)

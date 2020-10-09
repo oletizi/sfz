@@ -11,7 +11,7 @@ import (
 
 func TestBasics(t *testing.T) {
 	ass := require.New(t)
-	sfzFile, err := filepath.Abs("../../src/test/resources/foo.sfz")
+	sfzFile, err := filepath.Abs("../../src/test/resources/test-big.sfz")
 	ass.Nil(err)
 
 	log.Printf("sfzFile: %v", sfzFile)
@@ -31,7 +31,7 @@ type sfzListener struct {
 	*BaseSfzListener
 }
 
-func (s *sfzListener) ExitHeaderName(ctx *HeaderNameContext) {
+func (s *sfzListener) ExitHeader(ctx *HeaderContext) {
 	log.Printf("Header: %v", ctx.GetText())
 }
 

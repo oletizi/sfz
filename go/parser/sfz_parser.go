@@ -16,32 +16,35 @@ var _ = reflect.Copy
 var _ = strconv.Itoa
 
 var parserATN = []uint16{
-	3, 24715, 42794, 33075, 47597, 16764, 15335, 30598, 22884, 3, 21, 64, 4,
+	3, 24715, 42794, 33075, 47597, 16764, 15335, 30598, 22884, 3, 21, 70, 4,
 	2, 9, 2, 4, 3, 9, 3, 4, 4, 9, 4, 4, 5, 9, 5, 4, 6, 9, 6, 4, 7, 9, 7, 4,
 	8, 9, 8, 3, 2, 7, 2, 18, 10, 2, 12, 2, 14, 2, 21, 11, 2, 3, 2, 3, 2, 3,
-	3, 3, 3, 7, 3, 27, 10, 3, 12, 3, 14, 3, 30, 11, 3, 3, 3, 3, 3, 6, 3, 34,
-	10, 3, 13, 3, 14, 3, 35, 3, 3, 7, 3, 39, 10, 3, 12, 3, 14, 3, 42, 11, 3,
-	3, 4, 3, 4, 3, 4, 3, 4, 3, 5, 3, 5, 3, 6, 3, 6, 5, 6, 52, 10, 6, 3, 6,
-	3, 6, 5, 6, 56, 10, 6, 3, 6, 3, 6, 3, 7, 3, 7, 3, 8, 3, 8, 3, 8, 2, 2,
-	9, 2, 4, 6, 8, 10, 12, 14, 2, 6, 3, 2, 17, 18, 3, 2, 6, 8, 3, 2, 9, 13,
-	3, 2, 14, 16, 2, 63, 2, 19, 3, 2, 2, 2, 4, 24, 3, 2, 2, 2, 6, 43, 3, 2,
-	2, 2, 8, 47, 3, 2, 2, 2, 10, 49, 3, 2, 2, 2, 12, 59, 3, 2, 2, 2, 14, 61,
-	3, 2, 2, 2, 16, 18, 5, 4, 3, 2, 17, 16, 3, 2, 2, 2, 18, 21, 3, 2, 2, 2,
-	19, 17, 3, 2, 2, 2, 19, 20, 3, 2, 2, 2, 20, 22, 3, 2, 2, 2, 21, 19, 3,
-	2, 2, 2, 22, 23, 7, 2, 2, 3, 23, 3, 3, 2, 2, 2, 24, 40, 5, 6, 4, 2, 25,
-	27, 9, 2, 2, 2, 26, 25, 3, 2, 2, 2, 27, 30, 3, 2, 2, 2, 28, 26, 3, 2, 2,
-	2, 28, 29, 3, 2, 2, 2, 29, 31, 3, 2, 2, 2, 30, 28, 3, 2, 2, 2, 31, 39,
-	5, 6, 4, 2, 32, 34, 9, 2, 2, 2, 33, 32, 3, 2, 2, 2, 34, 35, 3, 2, 2, 2,
-	35, 33, 3, 2, 2, 2, 35, 36, 3, 2, 2, 2, 36, 37, 3, 2, 2, 2, 37, 39, 5,
-	10, 6, 2, 38, 28, 3, 2, 2, 2, 38, 33, 3, 2, 2, 2, 39, 42, 3, 2, 2, 2, 40,
-	38, 3, 2, 2, 2, 40, 41, 3, 2, 2, 2, 41, 5, 3, 2, 2, 2, 42, 40, 3, 2, 2,
-	2, 43, 44, 7, 4, 2, 2, 44, 45, 5, 8, 5, 2, 45, 46, 7, 5, 2, 2, 46, 7, 3,
-	2, 2, 2, 47, 48, 9, 3, 2, 2, 48, 9, 3, 2, 2, 2, 49, 51, 5, 12, 7, 2, 50,
-	52, 7, 18, 2, 2, 51, 50, 3, 2, 2, 2, 51, 52, 3, 2, 2, 2, 52, 53, 3, 2,
-	2, 2, 53, 55, 7, 3, 2, 2, 54, 56, 7, 18, 2, 2, 55, 54, 3, 2, 2, 2, 55,
-	56, 3, 2, 2, 2, 56, 57, 3, 2, 2, 2, 57, 58, 5, 14, 8, 2, 58, 11, 3, 2,
-	2, 2, 59, 60, 9, 4, 2, 2, 60, 13, 3, 2, 2, 2, 61, 62, 9, 5, 2, 2, 62, 15,
-	3, 2, 2, 2, 9, 19, 28, 35, 38, 40, 51, 55,
+	3, 7, 3, 26, 10, 3, 12, 3, 14, 3, 29, 11, 3, 3, 3, 3, 3, 7, 3, 33, 10,
+	3, 12, 3, 14, 3, 36, 11, 3, 3, 3, 3, 3, 6, 3, 40, 10, 3, 13, 3, 14, 3,
+	41, 3, 3, 7, 3, 45, 10, 3, 12, 3, 14, 3, 48, 11, 3, 3, 4, 3, 4, 3, 4, 3,
+	4, 3, 5, 3, 5, 3, 6, 3, 6, 5, 6, 58, 10, 6, 3, 6, 3, 6, 5, 6, 62, 10, 6,
+	3, 6, 3, 6, 3, 7, 3, 7, 3, 8, 3, 8, 3, 8, 2, 2, 9, 2, 4, 6, 8, 10, 12,
+	14, 2, 6, 3, 2, 17, 18, 3, 2, 6, 8, 3, 2, 9, 13, 3, 2, 14, 16, 2, 70, 2,
+	19, 3, 2, 2, 2, 4, 27, 3, 2, 2, 2, 6, 49, 3, 2, 2, 2, 8, 53, 3, 2, 2, 2,
+	10, 55, 3, 2, 2, 2, 12, 65, 3, 2, 2, 2, 14, 67, 3, 2, 2, 2, 16, 18, 5,
+	4, 3, 2, 17, 16, 3, 2, 2, 2, 18, 21, 3, 2, 2, 2, 19, 17, 3, 2, 2, 2, 19,
+	20, 3, 2, 2, 2, 20, 22, 3, 2, 2, 2, 21, 19, 3, 2, 2, 2, 22, 23, 7, 2, 2,
+	3, 23, 3, 3, 2, 2, 2, 24, 26, 9, 2, 2, 2, 25, 24, 3, 2, 2, 2, 26, 29, 3,
+	2, 2, 2, 27, 25, 3, 2, 2, 2, 27, 28, 3, 2, 2, 2, 28, 30, 3, 2, 2, 2, 29,
+	27, 3, 2, 2, 2, 30, 46, 5, 6, 4, 2, 31, 33, 9, 2, 2, 2, 32, 31, 3, 2, 2,
+	2, 33, 36, 3, 2, 2, 2, 34, 32, 3, 2, 2, 2, 34, 35, 3, 2, 2, 2, 35, 37,
+	3, 2, 2, 2, 36, 34, 3, 2, 2, 2, 37, 45, 5, 6, 4, 2, 38, 40, 9, 2, 2, 2,
+	39, 38, 3, 2, 2, 2, 40, 41, 3, 2, 2, 2, 41, 39, 3, 2, 2, 2, 41, 42, 3,
+	2, 2, 2, 42, 43, 3, 2, 2, 2, 43, 45, 5, 10, 6, 2, 44, 34, 3, 2, 2, 2, 44,
+	39, 3, 2, 2, 2, 45, 48, 3, 2, 2, 2, 46, 44, 3, 2, 2, 2, 46, 47, 3, 2, 2,
+	2, 47, 5, 3, 2, 2, 2, 48, 46, 3, 2, 2, 2, 49, 50, 7, 4, 2, 2, 50, 51, 5,
+	8, 5, 2, 51, 52, 7, 5, 2, 2, 52, 7, 3, 2, 2, 2, 53, 54, 9, 3, 2, 2, 54,
+	9, 3, 2, 2, 2, 55, 57, 5, 12, 7, 2, 56, 58, 7, 18, 2, 2, 57, 56, 3, 2,
+	2, 2, 57, 58, 3, 2, 2, 2, 58, 59, 3, 2, 2, 2, 59, 61, 7, 3, 2, 2, 60, 62,
+	7, 18, 2, 2, 61, 60, 3, 2, 2, 2, 61, 62, 3, 2, 2, 2, 62, 63, 3, 2, 2, 2,
+	63, 64, 5, 14, 8, 2, 64, 11, 3, 2, 2, 2, 65, 66, 9, 4, 2, 2, 66, 13, 3,
+	2, 2, 2, 67, 68, 9, 5, 2, 2, 68, 15, 3, 2, 2, 2, 10, 19, 27, 34, 41, 44,
+	46, 57, 61,
 }
 var deserializer = antlr.NewATNDeserializer(nil)
 var deserializedATN = deserializer.DeserializeFromUInt16(parserATN)
@@ -57,7 +60,7 @@ var symbolicNames = []string{
 }
 
 var ruleNames = []string{
-	"sfz", "sfzObject", "headerObject", "headerName", "opcodeStatement", "opcode",
+	"sfz", "sfzObject", "headerObject", "header", "opcodeStatement", "opcode",
 	"value",
 }
 var decisionToDFA = make([]*antlr.DFA, len(deserializedATN.DecisionToState))
@@ -115,7 +118,7 @@ const (
 	SfzParserRULE_sfz             = 0
 	SfzParserRULE_sfzObject       = 1
 	SfzParserRULE_headerObject    = 2
-	SfzParserRULE_headerName      = 3
+	SfzParserRULE_header          = 3
 	SfzParserRULE_opcodeStatement = 4
 	SfzParserRULE_opcode          = 5
 	SfzParserRULE_value           = 6
@@ -232,7 +235,7 @@ func (p *SfzParser) Sfz() (localctx ISfzContext) {
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
-	for _la == SfzParserLT {
+	for ((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<SfzParserLT)|(1<<SfzParserNEWLINE)|(1<<SfzParserWHITESPACE))) != 0 {
 		{
 			p.SetState(14)
 			p.SfzObject()
@@ -311,6 +314,22 @@ func (s *SfzObjectContext) HeaderObject(i int) IHeaderObjectContext {
 	return t.(IHeaderObjectContext)
 }
 
+func (s *SfzObjectContext) AllWHITESPACE() []antlr.TerminalNode {
+	return s.GetTokens(SfzParserWHITESPACE)
+}
+
+func (s *SfzObjectContext) WHITESPACE(i int) antlr.TerminalNode {
+	return s.GetToken(SfzParserWHITESPACE, i)
+}
+
+func (s *SfzObjectContext) AllNEWLINE() []antlr.TerminalNode {
+	return s.GetTokens(SfzParserNEWLINE)
+}
+
+func (s *SfzObjectContext) NEWLINE(i int) antlr.TerminalNode {
+	return s.GetToken(SfzParserNEWLINE, i)
+}
+
 func (s *SfzObjectContext) AllOpcodeStatement() []IOpcodeStatementContext {
 	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*IOpcodeStatementContext)(nil)).Elem())
 	var tst = make([]IOpcodeStatementContext, len(ts))
@@ -332,22 +351,6 @@ func (s *SfzObjectContext) OpcodeStatement(i int) IOpcodeStatementContext {
 	}
 
 	return t.(IOpcodeStatementContext)
-}
-
-func (s *SfzObjectContext) AllWHITESPACE() []antlr.TerminalNode {
-	return s.GetTokens(SfzParserWHITESPACE)
-}
-
-func (s *SfzObjectContext) WHITESPACE(i int) antlr.TerminalNode {
-	return s.GetToken(SfzParserWHITESPACE, i)
-}
-
-func (s *SfzObjectContext) AllNEWLINE() []antlr.TerminalNode {
-	return s.GetTokens(SfzParserNEWLINE)
-}
-
-func (s *SfzObjectContext) NEWLINE(i int) antlr.TerminalNode {
-	return s.GetToken(SfzParserNEWLINE, i)
 }
 
 func (s *SfzObjectContext) GetRuleContext() antlr.RuleContext {
@@ -394,27 +397,49 @@ func (p *SfzParser) SfzObject() (localctx ISfzObjectContext) {
 	var _alt int
 
 	p.EnterOuterAlt(localctx, 1)
+	p.SetState(25)
+	p.GetErrorHandler().Sync(p)
+	_la = p.GetTokenStream().LA(1)
+
+	for _la == SfzParserNEWLINE || _la == SfzParserWHITESPACE {
+		{
+			p.SetState(22)
+			_la = p.GetTokenStream().LA(1)
+
+			if !(_la == SfzParserNEWLINE || _la == SfzParserWHITESPACE) {
+				p.GetErrorHandler().RecoverInline(p)
+			} else {
+				p.GetErrorHandler().ReportMatch(p)
+				p.Consume()
+			}
+		}
+
+		p.SetState(27)
+		p.GetErrorHandler().Sync(p)
+		_la = p.GetTokenStream().LA(1)
+	}
+
 	{
-		p.SetState(22)
+		p.SetState(28)
 		p.HeaderObject()
 	}
-	p.SetState(38)
+	p.SetState(44)
 	p.GetErrorHandler().Sync(p)
-	_alt = p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 4, p.GetParserRuleContext())
+	_alt = p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 5, p.GetParserRuleContext())
 
 	for _alt != 2 && _alt != antlr.ATNInvalidAltNumber {
 		if _alt == 1 {
-			p.SetState(36)
+			p.SetState(42)
 			p.GetErrorHandler().Sync(p)
-			switch p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 3, p.GetParserRuleContext()) {
+			switch p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 4, p.GetParserRuleContext()) {
 			case 1:
-				p.SetState(26)
+				p.SetState(32)
 				p.GetErrorHandler().Sync(p)
 				_la = p.GetTokenStream().LA(1)
 
 				for _la == SfzParserNEWLINE || _la == SfzParserWHITESPACE {
 					{
-						p.SetState(23)
+						p.SetState(29)
 						_la = p.GetTokenStream().LA(1)
 
 						if !(_la == SfzParserNEWLINE || _la == SfzParserWHITESPACE) {
@@ -425,48 +450,48 @@ func (p *SfzParser) SfzObject() (localctx ISfzObjectContext) {
 						}
 					}
 
-					p.SetState(28)
-					p.GetErrorHandler().Sync(p)
-					_la = p.GetTokenStream().LA(1)
-				}
-				{
-					p.SetState(29)
-					p.HeaderObject()
-				}
-
-			case 2:
-				p.SetState(31)
-				p.GetErrorHandler().Sync(p)
-				_la = p.GetTokenStream().LA(1)
-
-				for ok := true; ok; ok = _la == SfzParserNEWLINE || _la == SfzParserWHITESPACE {
-					{
-						p.SetState(30)
-						_la = p.GetTokenStream().LA(1)
-
-						if !(_la == SfzParserNEWLINE || _la == SfzParserWHITESPACE) {
-							p.GetErrorHandler().RecoverInline(p)
-						} else {
-							p.GetErrorHandler().ReportMatch(p)
-							p.Consume()
-						}
-					}
-
-					p.SetState(33)
+					p.SetState(34)
 					p.GetErrorHandler().Sync(p)
 					_la = p.GetTokenStream().LA(1)
 				}
 				{
 					p.SetState(35)
+					p.HeaderObject()
+				}
+
+			case 2:
+				p.SetState(37)
+				p.GetErrorHandler().Sync(p)
+				_la = p.GetTokenStream().LA(1)
+
+				for ok := true; ok; ok = _la == SfzParserNEWLINE || _la == SfzParserWHITESPACE {
+					{
+						p.SetState(36)
+						_la = p.GetTokenStream().LA(1)
+
+						if !(_la == SfzParserNEWLINE || _la == SfzParserWHITESPACE) {
+							p.GetErrorHandler().RecoverInline(p)
+						} else {
+							p.GetErrorHandler().ReportMatch(p)
+							p.Consume()
+						}
+					}
+
+					p.SetState(39)
+					p.GetErrorHandler().Sync(p)
+					_la = p.GetTokenStream().LA(1)
+				}
+				{
+					p.SetState(41)
 					p.OpcodeStatement()
 				}
 
 			}
 
 		}
-		p.SetState(40)
+		p.SetState(46)
 		p.GetErrorHandler().Sync(p)
-		_alt = p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 4, p.GetParserRuleContext())
+		_alt = p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 5, p.GetParserRuleContext())
 	}
 
 	return localctx
@@ -514,14 +539,14 @@ func (s *HeaderObjectContext) LT() antlr.TerminalNode {
 	return s.GetToken(SfzParserLT, 0)
 }
 
-func (s *HeaderObjectContext) HeaderName() IHeaderNameContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*IHeaderNameContext)(nil)).Elem(), 0)
+func (s *HeaderObjectContext) Header() IHeaderContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*IHeaderContext)(nil)).Elem(), 0)
 
 	if t == nil {
 		return nil
 	}
 
-	return t.(IHeaderNameContext)
+	return t.(IHeaderContext)
 }
 
 func (s *HeaderObjectContext) GT() antlr.TerminalNode {
@@ -570,94 +595,94 @@ func (p *SfzParser) HeaderObject() (localctx IHeaderObjectContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(41)
+		p.SetState(47)
 		p.Match(SfzParserLT)
 	}
 	{
-		p.SetState(42)
-		p.HeaderName()
+		p.SetState(48)
+		p.Header()
 	}
 	{
-		p.SetState(43)
+		p.SetState(49)
 		p.Match(SfzParserGT)
 	}
 
 	return localctx
 }
 
-// IHeaderNameContext is an interface to support dynamic dispatch.
-type IHeaderNameContext interface {
+// IHeaderContext is an interface to support dynamic dispatch.
+type IHeaderContext interface {
 	antlr.ParserRuleContext
 
 	// GetParser returns the parser.
 	GetParser() antlr.Parser
 
-	// IsHeaderNameContext differentiates from other interfaces.
-	IsHeaderNameContext()
+	// IsHeaderContext differentiates from other interfaces.
+	IsHeaderContext()
 }
 
-type HeaderNameContext struct {
+type HeaderContext struct {
 	*antlr.BaseParserRuleContext
 	parser antlr.Parser
 }
 
-func NewEmptyHeaderNameContext() *HeaderNameContext {
-	var p = new(HeaderNameContext)
+func NewEmptyHeaderContext() *HeaderContext {
+	var p = new(HeaderContext)
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
-	p.RuleIndex = SfzParserRULE_headerName
+	p.RuleIndex = SfzParserRULE_header
 	return p
 }
 
-func (*HeaderNameContext) IsHeaderNameContext() {}
+func (*HeaderContext) IsHeaderContext() {}
 
-func NewHeaderNameContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *HeaderNameContext {
-	var p = new(HeaderNameContext)
+func NewHeaderContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *HeaderContext {
+	var p = new(HeaderContext)
 
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
 
 	p.parser = parser
-	p.RuleIndex = SfzParserRULE_headerName
+	p.RuleIndex = SfzParserRULE_header
 
 	return p
 }
 
-func (s *HeaderNameContext) GetParser() antlr.Parser { return s.parser }
+func (s *HeaderContext) GetParser() antlr.Parser { return s.parser }
 
-func (s *HeaderNameContext) GLOBAL() antlr.TerminalNode {
+func (s *HeaderContext) GLOBAL() antlr.TerminalNode {
 	return s.GetToken(SfzParserGLOBAL, 0)
 }
 
-func (s *HeaderNameContext) GROUP() antlr.TerminalNode {
+func (s *HeaderContext) GROUP() antlr.TerminalNode {
 	return s.GetToken(SfzParserGROUP, 0)
 }
 
-func (s *HeaderNameContext) REGION() antlr.TerminalNode {
+func (s *HeaderContext) REGION() antlr.TerminalNode {
 	return s.GetToken(SfzParserREGION, 0)
 }
 
-func (s *HeaderNameContext) GetRuleContext() antlr.RuleContext {
+func (s *HeaderContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
 
-func (s *HeaderNameContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
+func (s *HeaderContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
 	return antlr.TreesStringTree(s, ruleNames, recog)
 }
 
-func (s *HeaderNameContext) EnterRule(listener antlr.ParseTreeListener) {
+func (s *HeaderContext) EnterRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(SfzListener); ok {
-		listenerT.EnterHeaderName(s)
+		listenerT.EnterHeader(s)
 	}
 }
 
-func (s *HeaderNameContext) ExitRule(listener antlr.ParseTreeListener) {
+func (s *HeaderContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(SfzListener); ok {
-		listenerT.ExitHeaderName(s)
+		listenerT.ExitHeader(s)
 	}
 }
 
-func (p *SfzParser) HeaderName() (localctx IHeaderNameContext) {
-	localctx = NewHeaderNameContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 6, SfzParserRULE_headerName)
+func (p *SfzParser) Header() (localctx IHeaderContext) {
+	localctx = NewHeaderContext(p, p.GetParserRuleContext(), p.GetState())
+	p.EnterRule(localctx, 6, SfzParserRULE_header)
 	var _la int
 
 	defer func() {
@@ -678,7 +703,7 @@ func (p *SfzParser) HeaderName() (localctx IHeaderNameContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(45)
+		p.SetState(51)
 		_la = p.GetTokenStream().LA(1)
 
 		if !(((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<SfzParserGLOBAL)|(1<<SfzParserGROUP)|(1<<SfzParserREGION))) != 0) {
@@ -801,37 +826,37 @@ func (p *SfzParser) OpcodeStatement() (localctx IOpcodeStatementContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(47)
+		p.SetState(53)
 		p.Opcode()
 	}
-	p.SetState(49)
+	p.SetState(55)
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
 	if _la == SfzParserWHITESPACE {
 		{
-			p.SetState(48)
+			p.SetState(54)
 			p.Match(SfzParserWHITESPACE)
 		}
 
 	}
 	{
-		p.SetState(51)
+		p.SetState(57)
 		p.Match(SfzParserT__0)
 	}
-	p.SetState(53)
+	p.SetState(59)
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
 	if _la == SfzParserWHITESPACE {
 		{
-			p.SetState(52)
+			p.SetState(58)
 			p.Match(SfzParserWHITESPACE)
 		}
 
 	}
 	{
-		p.SetState(55)
+		p.SetState(61)
 		p.Value()
 	}
 
@@ -939,7 +964,7 @@ func (p *SfzParser) Opcode() (localctx IOpcodeContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(57)
+		p.SetState(63)
 		_la = p.GetTokenStream().LA(1)
 
 		if !(((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<SfzParserAMPEG_RELEASE)|(1<<SfzParserHIKEY)|(1<<SfzParserKEY)|(1<<SfzParserLOKEY)|(1<<SfzParserSAMPLE))) != 0) {
@@ -1046,7 +1071,7 @@ func (p *SfzParser) Value() (localctx IValueContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(59)
+		p.SetState(65)
 		_la = p.GetTokenStream().LA(1)
 
 		if !(((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<SfzParserINT)|(1<<SfzParserFLOAT)|(1<<SfzParserPATH))) != 0) {

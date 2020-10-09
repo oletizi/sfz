@@ -39,11 +39,11 @@ func (s *BaseSfzListener) EnterHeaderObject(ctx *HeaderObjectContext) {}
 // ExitHeaderObject is called when production headerObject is exited.
 func (s *BaseSfzListener) ExitHeaderObject(ctx *HeaderObjectContext) {}
 
-// EnterHeaderName is called when production headerName is entered.
-func (s *BaseSfzListener) EnterHeaderName(ctx *HeaderNameContext) {}
+// EnterHeader is called when production header is entered.
+func (s *BaseSfzListener) EnterHeader(ctx *HeaderContext) {}
 
-// ExitHeaderName is called when production headerName is exited.
-func (s *BaseSfzListener) ExitHeaderName(ctx *HeaderNameContext) {}
+// ExitHeader is called when production header is exited.
+func (s *BaseSfzListener) ExitHeader(ctx *HeaderContext) {}
 
 // EnterOpcodeStatement is called when production opcodeStatement is entered.
 func (s *BaseSfzListener) EnterOpcodeStatement(ctx *OpcodeStatementContext) {}

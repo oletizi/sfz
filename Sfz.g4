@@ -6,6 +6,9 @@ sfz
 
 sfzObject
   :
+  ( WHITESPACE
+  | NEWLINE
+  )*
   ( headerObject
     ( ( WHITESPACE
        | NEWLINE
@@ -20,10 +23,10 @@ sfzObject
   ;
 
 headerObject
-  : LT headerName GT
+  : LT header GT
   ;
 
-headerName
+header
   : GLOBAL
   | GROUP
   | REGION
