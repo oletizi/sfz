@@ -24,7 +24,7 @@ var parserATN = []uint16{
 	41, 3, 3, 7, 3, 45, 10, 3, 12, 3, 14, 3, 48, 11, 3, 3, 4, 3, 4, 3, 4, 3,
 	4, 3, 5, 3, 5, 3, 6, 3, 6, 5, 6, 58, 10, 6, 3, 6, 3, 6, 5, 6, 62, 10, 6,
 	3, 6, 3, 6, 3, 7, 3, 7, 3, 8, 3, 8, 3, 8, 2, 2, 9, 2, 4, 6, 8, 10, 12,
-	14, 2, 6, 3, 2, 17, 18, 3, 2, 6, 8, 3, 2, 9, 13, 3, 2, 14, 16, 2, 70, 2,
+	14, 2, 6, 3, 2, 17, 18, 3, 2, 5, 7, 3, 2, 9, 13, 3, 2, 14, 16, 2, 70, 2,
 	19, 3, 2, 2, 2, 4, 27, 3, 2, 2, 2, 6, 49, 3, 2, 2, 2, 8, 53, 3, 2, 2, 2,
 	10, 55, 3, 2, 2, 2, 12, 65, 3, 2, 2, 2, 14, 67, 3, 2, 2, 2, 16, 18, 5,
 	4, 3, 2, 17, 16, 3, 2, 2, 2, 18, 21, 3, 2, 2, 2, 19, 17, 3, 2, 2, 2, 19,
@@ -37,10 +37,10 @@ var parserATN = []uint16{
 	39, 38, 3, 2, 2, 2, 40, 41, 3, 2, 2, 2, 41, 39, 3, 2, 2, 2, 41, 42, 3,
 	2, 2, 2, 42, 43, 3, 2, 2, 2, 43, 45, 5, 10, 6, 2, 44, 34, 3, 2, 2, 2, 44,
 	39, 3, 2, 2, 2, 45, 48, 3, 2, 2, 2, 46, 44, 3, 2, 2, 2, 46, 47, 3, 2, 2,
-	2, 47, 5, 3, 2, 2, 2, 48, 46, 3, 2, 2, 2, 49, 50, 7, 4, 2, 2, 50, 51, 5,
-	8, 5, 2, 51, 52, 7, 5, 2, 2, 52, 7, 3, 2, 2, 2, 53, 54, 9, 3, 2, 2, 54,
+	2, 47, 5, 3, 2, 2, 2, 48, 46, 3, 2, 2, 2, 49, 50, 7, 3, 2, 2, 50, 51, 5,
+	8, 5, 2, 51, 52, 7, 4, 2, 2, 52, 7, 3, 2, 2, 2, 53, 54, 9, 3, 2, 2, 54,
 	9, 3, 2, 2, 2, 55, 57, 5, 12, 7, 2, 56, 58, 7, 18, 2, 2, 57, 56, 3, 2,
-	2, 2, 57, 58, 3, 2, 2, 2, 58, 59, 3, 2, 2, 2, 59, 61, 7, 3, 2, 2, 60, 62,
+	2, 2, 57, 58, 3, 2, 2, 2, 58, 59, 3, 2, 2, 2, 59, 61, 7, 8, 2, 2, 60, 62,
 	7, 18, 2, 2, 61, 60, 3, 2, 2, 2, 61, 62, 3, 2, 2, 2, 62, 63, 3, 2, 2, 2,
 	63, 64, 5, 14, 8, 2, 64, 11, 3, 2, 2, 2, 65, 66, 9, 4, 2, 2, 66, 13, 3,
 	2, 2, 2, 67, 68, 9, 5, 2, 2, 68, 15, 3, 2, 2, 2, 10, 19, 27, 34, 41, 44,
@@ -50,13 +50,12 @@ var deserializer = antlr.NewATNDeserializer(nil)
 var deserializedATN = deserializer.DeserializeFromUInt16(parserATN)
 
 var literalNames = []string{
-	"", "'='", "'<'", "'>'", "'global'", "'group'", "'region'", "'ampeg_release'",
+	"", "'<'", "'>'", "'global'", "'group'", "'region'", "'='", "'ampeg_release'",
 	"'hikey'", "'key'", "'lokey'", "'sample'",
 }
 var symbolicNames = []string{
-	"", "", "LT", "GT", "GLOBAL", "GROUP", "REGION", "AMPEG_RELEASE", "HIKEY",
-	"KEY", "LOKEY", "SAMPLE", "INT", "FLOAT", "PATH", "NEWLINE", "WHITESPACE",
-	"BLOCK_COMMENT", "LINE_COMMENT", "HASH_COMMENT",
+	"", "", "", "", "", "", "", "", "", "", "", "", "INT", "FLOAT", "PATH",
+	"NEWLINE", "WHITESPACE", "BLOCK_COMMENT", "LINE_COMMENT", "HASH_COMMENT",
 }
 
 var ruleNames = []string{
@@ -93,16 +92,16 @@ func NewSfzParser(input antlr.TokenStream) *SfzParser {
 const (
 	SfzParserEOF           = antlr.TokenEOF
 	SfzParserT__0          = 1
-	SfzParserLT            = 2
-	SfzParserGT            = 3
-	SfzParserGLOBAL        = 4
-	SfzParserGROUP         = 5
-	SfzParserREGION        = 6
-	SfzParserAMPEG_RELEASE = 7
-	SfzParserHIKEY         = 8
-	SfzParserKEY           = 9
-	SfzParserLOKEY         = 10
-	SfzParserSAMPLE        = 11
+	SfzParserT__1          = 2
+	SfzParserT__2          = 3
+	SfzParserT__3          = 4
+	SfzParserT__4          = 5
+	SfzParserT__5          = 6
+	SfzParserT__6          = 7
+	SfzParserT__7          = 8
+	SfzParserT__8          = 9
+	SfzParserT__9          = 10
+	SfzParserT__10         = 11
 	SfzParserINT           = 12
 	SfzParserFLOAT         = 13
 	SfzParserPATH          = 14
@@ -235,7 +234,7 @@ func (p *SfzParser) Sfz() (localctx ISfzContext) {
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
-	for ((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<SfzParserLT)|(1<<SfzParserNEWLINE)|(1<<SfzParserWHITESPACE))) != 0 {
+	for ((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<SfzParserT__0)|(1<<SfzParserNEWLINE)|(1<<SfzParserWHITESPACE))) != 0 {
 		{
 			p.SetState(14)
 			p.SfzObject()
@@ -535,10 +534,6 @@ func NewHeaderObjectContext(parser antlr.Parser, parent antlr.ParserRuleContext,
 
 func (s *HeaderObjectContext) GetParser() antlr.Parser { return s.parser }
 
-func (s *HeaderObjectContext) LT() antlr.TerminalNode {
-	return s.GetToken(SfzParserLT, 0)
-}
-
 func (s *HeaderObjectContext) Header() IHeaderContext {
 	var t = s.GetTypedRuleContext(reflect.TypeOf((*IHeaderContext)(nil)).Elem(), 0)
 
@@ -547,10 +542,6 @@ func (s *HeaderObjectContext) Header() IHeaderContext {
 	}
 
 	return t.(IHeaderContext)
-}
-
-func (s *HeaderObjectContext) GT() antlr.TerminalNode {
-	return s.GetToken(SfzParserGT, 0)
 }
 
 func (s *HeaderObjectContext) GetRuleContext() antlr.RuleContext {
@@ -596,7 +587,7 @@ func (p *SfzParser) HeaderObject() (localctx IHeaderObjectContext) {
 	p.EnterOuterAlt(localctx, 1)
 	{
 		p.SetState(47)
-		p.Match(SfzParserLT)
+		p.Match(SfzParserT__0)
 	}
 	{
 		p.SetState(48)
@@ -604,7 +595,7 @@ func (p *SfzParser) HeaderObject() (localctx IHeaderObjectContext) {
 	}
 	{
 		p.SetState(49)
-		p.Match(SfzParserGT)
+		p.Match(SfzParserT__1)
 	}
 
 	return localctx
@@ -647,19 +638,6 @@ func NewHeaderContext(parser antlr.Parser, parent antlr.ParserRuleContext, invok
 }
 
 func (s *HeaderContext) GetParser() antlr.Parser { return s.parser }
-
-func (s *HeaderContext) GLOBAL() antlr.TerminalNode {
-	return s.GetToken(SfzParserGLOBAL, 0)
-}
-
-func (s *HeaderContext) GROUP() antlr.TerminalNode {
-	return s.GetToken(SfzParserGROUP, 0)
-}
-
-func (s *HeaderContext) REGION() antlr.TerminalNode {
-	return s.GetToken(SfzParserREGION, 0)
-}
-
 func (s *HeaderContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
@@ -706,7 +684,7 @@ func (p *SfzParser) Header() (localctx IHeaderContext) {
 		p.SetState(51)
 		_la = p.GetTokenStream().LA(1)
 
-		if !(((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<SfzParserGLOBAL)|(1<<SfzParserGROUP)|(1<<SfzParserREGION))) != 0) {
+		if !(((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<SfzParserT__2)|(1<<SfzParserT__3)|(1<<SfzParserT__4))) != 0) {
 			p.GetErrorHandler().RecoverInline(p)
 		} else {
 			p.GetErrorHandler().ReportMatch(p)
@@ -842,7 +820,7 @@ func (p *SfzParser) OpcodeStatement() (localctx IOpcodeStatementContext) {
 	}
 	{
 		p.SetState(57)
-		p.Match(SfzParserT__0)
+		p.Match(SfzParserT__5)
 	}
 	p.SetState(59)
 	p.GetErrorHandler().Sync(p)
@@ -900,27 +878,6 @@ func NewOpcodeContext(parser antlr.Parser, parent antlr.ParserRuleContext, invok
 }
 
 func (s *OpcodeContext) GetParser() antlr.Parser { return s.parser }
-
-func (s *OpcodeContext) AMPEG_RELEASE() antlr.TerminalNode {
-	return s.GetToken(SfzParserAMPEG_RELEASE, 0)
-}
-
-func (s *OpcodeContext) HIKEY() antlr.TerminalNode {
-	return s.GetToken(SfzParserHIKEY, 0)
-}
-
-func (s *OpcodeContext) KEY() antlr.TerminalNode {
-	return s.GetToken(SfzParserKEY, 0)
-}
-
-func (s *OpcodeContext) LOKEY() antlr.TerminalNode {
-	return s.GetToken(SfzParserLOKEY, 0)
-}
-
-func (s *OpcodeContext) SAMPLE() antlr.TerminalNode {
-	return s.GetToken(SfzParserSAMPLE, 0)
-}
-
 func (s *OpcodeContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
@@ -967,7 +924,7 @@ func (p *SfzParser) Opcode() (localctx IOpcodeContext) {
 		p.SetState(63)
 		_la = p.GetTokenStream().LA(1)
 
-		if !(((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<SfzParserAMPEG_RELEASE)|(1<<SfzParserHIKEY)|(1<<SfzParserKEY)|(1<<SfzParserLOKEY)|(1<<SfzParserSAMPLE))) != 0) {
+		if !(((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<SfzParserT__6)|(1<<SfzParserT__7)|(1<<SfzParserT__8)|(1<<SfzParserT__9)|(1<<SfzParserT__10))) != 0) {
 			p.GetErrorHandler().RecoverInline(p)
 		} else {
 			p.GetErrorHandler().ReportMatch(p)
