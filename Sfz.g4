@@ -68,6 +68,7 @@ value
   :
   ( INT
   | FLOAT
+  | PATH
   )
   ;
 
@@ -80,6 +81,19 @@ SAMPLE: 'sample';
 INT: '0'..'9'+;
 
 FLOAT: (INT | INT? '.' INT);
+
+PATH
+  :
+  SEPARATOR* PATH_SEGMENT (SEPARATOR+ PATH_SEGMENT)*
+  ;
+
+fragment SEPARATOR
+  : [/\\]
+  ;
+
+fragment PATH_SEGMENT
+  : [a-zA-Z0-9._\-]+
+  ;
 
 //FILE_PATH:
 //  ( FILENAME

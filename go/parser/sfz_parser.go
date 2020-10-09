@@ -16,15 +16,15 @@ var _ = reflect.Copy
 var _ = strconv.Itoa
 
 var parserATN = []uint16{
-	3, 24715, 42794, 33075, 47597, 16764, 15335, 30598, 22884, 3, 20, 64, 4,
+	3, 24715, 42794, 33075, 47597, 16764, 15335, 30598, 22884, 3, 21, 64, 4,
 	2, 9, 2, 4, 3, 9, 3, 4, 4, 9, 4, 4, 5, 9, 5, 4, 6, 9, 6, 4, 7, 9, 7, 4,
 	8, 9, 8, 3, 2, 7, 2, 18, 10, 2, 12, 2, 14, 2, 21, 11, 2, 3, 2, 3, 2, 3,
 	3, 3, 3, 7, 3, 27, 10, 3, 12, 3, 14, 3, 30, 11, 3, 3, 3, 3, 3, 6, 3, 34,
 	10, 3, 13, 3, 14, 3, 35, 3, 3, 7, 3, 39, 10, 3, 12, 3, 14, 3, 42, 11, 3,
 	3, 4, 3, 4, 3, 4, 3, 4, 3, 5, 3, 5, 3, 6, 3, 6, 5, 6, 52, 10, 6, 3, 6,
 	3, 6, 5, 6, 56, 10, 6, 3, 6, 3, 6, 3, 7, 3, 7, 3, 8, 3, 8, 3, 8, 2, 2,
-	9, 2, 4, 6, 8, 10, 12, 14, 2, 6, 3, 2, 16, 17, 3, 2, 6, 8, 3, 2, 9, 13,
-	3, 2, 14, 15, 2, 63, 2, 19, 3, 2, 2, 2, 4, 24, 3, 2, 2, 2, 6, 43, 3, 2,
+	9, 2, 4, 6, 8, 10, 12, 14, 2, 6, 3, 2, 17, 18, 3, 2, 6, 8, 3, 2, 9, 13,
+	3, 2, 14, 16, 2, 63, 2, 19, 3, 2, 2, 2, 4, 24, 3, 2, 2, 2, 6, 43, 3, 2,
 	2, 2, 8, 47, 3, 2, 2, 2, 10, 49, 3, 2, 2, 2, 12, 59, 3, 2, 2, 2, 14, 61,
 	3, 2, 2, 2, 16, 18, 5, 4, 3, 2, 17, 16, 3, 2, 2, 2, 18, 21, 3, 2, 2, 2,
 	19, 17, 3, 2, 2, 2, 19, 20, 3, 2, 2, 2, 20, 22, 3, 2, 2, 2, 21, 19, 3,
@@ -37,8 +37,8 @@ var parserATN = []uint16{
 	38, 3, 2, 2, 2, 40, 41, 3, 2, 2, 2, 41, 5, 3, 2, 2, 2, 42, 40, 3, 2, 2,
 	2, 43, 44, 7, 4, 2, 2, 44, 45, 5, 8, 5, 2, 45, 46, 7, 5, 2, 2, 46, 7, 3,
 	2, 2, 2, 47, 48, 9, 3, 2, 2, 48, 9, 3, 2, 2, 2, 49, 51, 5, 12, 7, 2, 50,
-	52, 7, 17, 2, 2, 51, 50, 3, 2, 2, 2, 51, 52, 3, 2, 2, 2, 52, 53, 3, 2,
-	2, 2, 53, 55, 7, 3, 2, 2, 54, 56, 7, 17, 2, 2, 55, 54, 3, 2, 2, 2, 55,
+	52, 7, 18, 2, 2, 51, 50, 3, 2, 2, 2, 51, 52, 3, 2, 2, 2, 52, 53, 3, 2,
+	2, 2, 53, 55, 7, 3, 2, 2, 54, 56, 7, 18, 2, 2, 55, 54, 3, 2, 2, 2, 55,
 	56, 3, 2, 2, 2, 56, 57, 3, 2, 2, 2, 57, 58, 5, 14, 8, 2, 58, 11, 3, 2,
 	2, 2, 59, 60, 9, 4, 2, 2, 60, 13, 3, 2, 2, 2, 61, 62, 9, 5, 2, 2, 62, 15,
 	3, 2, 2, 2, 9, 19, 28, 35, 38, 40, 51, 55,
@@ -52,8 +52,8 @@ var literalNames = []string{
 }
 var symbolicNames = []string{
 	"", "", "LT", "GT", "GLOBAL", "GROUP", "REGION", "AMPEG_RELEASE", "HIKEY",
-	"KEY", "LOKEY", "SAMPLE", "INT", "FLOAT", "NEWLINE", "WHITESPACE", "BLOCK_COMMENT",
-	"LINE_COMMENT", "HASH_COMMENT",
+	"KEY", "LOKEY", "SAMPLE", "INT", "FLOAT", "PATH", "NEWLINE", "WHITESPACE",
+	"BLOCK_COMMENT", "LINE_COMMENT", "HASH_COMMENT",
 }
 
 var ruleNames = []string{
@@ -102,11 +102,12 @@ const (
 	SfzParserSAMPLE        = 11
 	SfzParserINT           = 12
 	SfzParserFLOAT         = 13
-	SfzParserNEWLINE       = 14
-	SfzParserWHITESPACE    = 15
-	SfzParserBLOCK_COMMENT = 16
-	SfzParserLINE_COMMENT  = 17
-	SfzParserHASH_COMMENT  = 18
+	SfzParserPATH          = 14
+	SfzParserNEWLINE       = 15
+	SfzParserWHITESPACE    = 16
+	SfzParserBLOCK_COMMENT = 17
+	SfzParserLINE_COMMENT  = 18
+	SfzParserHASH_COMMENT  = 19
 )
 
 // SfzParser rules.
@@ -998,6 +999,10 @@ func (s *ValueContext) FLOAT() antlr.TerminalNode {
 	return s.GetToken(SfzParserFLOAT, 0)
 }
 
+func (s *ValueContext) PATH() antlr.TerminalNode {
+	return s.GetToken(SfzParserPATH, 0)
+}
+
 func (s *ValueContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
@@ -1044,7 +1049,7 @@ func (p *SfzParser) Value() (localctx IValueContext) {
 		p.SetState(59)
 		_la = p.GetTokenStream().LA(1)
 
-		if !(_la == SfzParserINT || _la == SfzParserFLOAT) {
+		if !(((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<SfzParserINT)|(1<<SfzParserFLOAT)|(1<<SfzParserPATH))) != 0) {
 			p.GetErrorHandler().RecoverInline(p)
 		} else {
 			p.GetErrorHandler().ReportMatch(p)
