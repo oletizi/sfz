@@ -38,15 +38,15 @@ public interface SfzListener extends ParseTreeListener {
 	 */
 	void exitHeaderObject(SfzParser.HeaderObjectContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SfzParser#headerName}.
+	 * Enter a parse tree produced by {@link SfzParser#header}.
 	 * @param ctx the parse tree
 	 */
-	void enterHeaderName(SfzParser.HeaderNameContext ctx);
+	void enterHeader(SfzParser.HeaderContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SfzParser#headerName}.
+	 * Exit a parse tree produced by {@link SfzParser#header}.
 	 * @param ctx the parse tree
 	 */
-	void exitHeaderName(SfzParser.HeaderNameContext ctx);
+	void exitHeader(SfzParser.HeaderContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link SfzParser#opcodeStatement}.
 	 * @param ctx the parse tree

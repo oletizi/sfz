@@ -26,9 +26,6 @@ type SfzListener interface {
 	// EnterOpcode is called when entering the opcode production.
 	EnterOpcode(c *OpcodeContext)
 
-	// EnterValue is called when entering the value production.
-	EnterValue(c *ValueContext)
-
 	// ExitSfz is called when exiting the sfz production.
 	ExitSfz(c *SfzContext)
 
@@ -46,7 +43,4 @@ type SfzListener interface {
 
 	// ExitOpcode is called when exiting the opcode production.
 	ExitOpcode(c *OpcodeContext)
-
-	// ExitValue is called when exiting the value production.
-	ExitValue(c *ValueContext)
 }

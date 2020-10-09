@@ -52,13 +52,13 @@ public class SfzBaseListener implements SfzListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterHeaderName(SfzParser.HeaderNameContext ctx) { }
+	@Override public void enterHeader(SfzParser.HeaderContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitHeaderName(SfzParser.HeaderNameContext ctx) { }
+	@Override public void exitHeader(SfzParser.HeaderContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

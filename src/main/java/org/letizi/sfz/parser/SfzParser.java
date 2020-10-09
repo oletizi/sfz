@@ -17,29 +17,31 @@ public class SfzParser extends Parser {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		T__0=1, LT=2, GT=3, GLOBAL=4, GROUP=5, REGION=6, BLOCK_COMMENT=7, LINE_COMMENT=8, 
-		HASH_COMMENT=9, WHITESPACE=10, NEWLINE=11;
+		T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, T__5=6, IDENTIFIER=7, GENERATOR=8, 
+		INT=9, FLOAT=10, PATH=11, NEWLINE=12, WHITESPACE=13, BLOCK_COMMENT=14, 
+		LINE_COMMENT=15, HASH_COMMENT=16;
 	public static final int
-		RULE_sfz = 0, RULE_sfzObject = 1, RULE_headerObject = 2, RULE_headerName = 3, 
+		RULE_sfz = 0, RULE_sfzObject = 1, RULE_headerObject = 2, RULE_header = 3, 
 		RULE_opcodeStatement = 4, RULE_opcode = 5, RULE_value = 6;
 	private static String[] makeRuleNames() {
 		return new String[] {
-			"sfz", "sfzObject", "headerObject", "headerName", "opcodeStatement", 
-			"opcode", "value"
+			"sfz", "sfzObject", "headerObject", "header", "opcodeStatement", "opcode", 
+			"value"
 		};
 	}
 	public static final String[] ruleNames = makeRuleNames();
 
 	private static String[] makeLiteralNames() {
 		return new String[] {
-			null, "'='", "'<'", "'>'", "'global'", "'group'", "'region'"
+			null, "'<'", "'>'", "'global'", "'group'", "'region'", "'='"
 		};
 	}
 	private static final String[] _LITERAL_NAMES = makeLiteralNames();
 	private static String[] makeSymbolicNames() {
 		return new String[] {
-			null, null, "LT", "GT", "GLOBAL", "GROUP", "REGION", "BLOCK_COMMENT", 
-			"LINE_COMMENT", "HASH_COMMENT", "WHITESPACE", "NEWLINE"
+			null, null, null, null, null, null, null, "IDENTIFIER", "GENERATOR", 
+			"INT", "FLOAT", "PATH", "NEWLINE", "WHITESPACE", "BLOCK_COMMENT", "LINE_COMMENT", 
+			"HASH_COMMENT"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -125,7 +127,7 @@ public class SfzParser extends Parser {
 			setState(17);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			while (_la==LT) {
+			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__0) | (1L << NEWLINE) | (1L << WHITESPACE))) != 0)) {
 				{
 				{
 				setState(14);
@@ -166,6 +168,12 @@ public class SfzParser extends Parser {
 		public TerminalNode NEWLINE(int i) {
 			return getToken(SfzParser.NEWLINE, i);
 		}
+		public List<OpcodeStatementContext> opcodeStatement() {
+			return getRuleContexts(OpcodeStatementContext.class);
+		}
+		public OpcodeStatementContext opcodeStatement(int i) {
+			return getRuleContext(OpcodeStatementContext.class,i);
+		}
 		public SfzObjectContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -188,46 +196,102 @@ public class SfzParser extends Parser {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			{
-			setState(22);
-			headerObject();
-			setState(31);
+			setState(25);
 			_errHandler.sync(this);
-			_alt = getInterpreter().adaptivePredict(_input,2,_ctx);
-			while ( _alt!=1 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
-				if ( _alt==1+1 ) {
+			_la = _input.LA(1);
+			while (_la==NEWLINE || _la==WHITESPACE) {
+				{
+				{
+				setState(22);
+				_la = _input.LA(1);
+				if ( !(_la==NEWLINE || _la==WHITESPACE) ) {
+				_errHandler.recoverInline(this);
+				}
+				else {
+					if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+					_errHandler.reportMatch(this);
+					consume();
+				}
+				}
+				}
+				setState(27);
+				_errHandler.sync(this);
+				_la = _input.LA(1);
+			}
+			{
+			setState(28);
+			headerObject();
+			setState(44);
+			_errHandler.sync(this);
+			_alt = getInterpreter().adaptivePredict(_input,5,_ctx);
+			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
+				if ( _alt==1 ) {
 					{
-					{
-					setState(24); 
+					setState(42);
 					_errHandler.sync(this);
-					_la = _input.LA(1);
-					do {
+					switch ( getInterpreter().adaptivePredict(_input,4,_ctx) ) {
+					case 1:
 						{
-						{
-						setState(23);
-						_la = _input.LA(1);
-						if ( !(_la==WHITESPACE || _la==NEWLINE) ) {
-						_errHandler.recoverInline(this);
-						}
-						else {
-							if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
-							_errHandler.reportMatch(this);
-							consume();
-						}
-						}
-						}
-						setState(26); 
+						setState(32);
 						_errHandler.sync(this);
 						_la = _input.LA(1);
-					} while ( _la==WHITESPACE || _la==NEWLINE );
-					setState(28);
-					headerObject();
+						while (_la==NEWLINE || _la==WHITESPACE) {
+							{
+							{
+							setState(29);
+							_la = _input.LA(1);
+							if ( !(_la==NEWLINE || _la==WHITESPACE) ) {
+							_errHandler.recoverInline(this);
+							}
+							else {
+								if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+								_errHandler.reportMatch(this);
+								consume();
+							}
+							}
+							}
+							setState(34);
+							_errHandler.sync(this);
+							_la = _input.LA(1);
+						}
+						setState(35);
+						headerObject();
+						}
+						break;
+					case 2:
+						{
+						setState(37); 
+						_errHandler.sync(this);
+						_la = _input.LA(1);
+						do {
+							{
+							{
+							setState(36);
+							_la = _input.LA(1);
+							if ( !(_la==NEWLINE || _la==WHITESPACE) ) {
+							_errHandler.recoverInline(this);
+							}
+							else {
+								if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+								_errHandler.reportMatch(this);
+								consume();
+							}
+							}
+							}
+							setState(39); 
+							_errHandler.sync(this);
+							_la = _input.LA(1);
+						} while ( _la==NEWLINE || _la==WHITESPACE );
+						setState(41);
+						opcodeStatement();
+						}
+						break;
 					}
 					} 
 				}
-				setState(33);
+				setState(46);
 				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,2,_ctx);
+				_alt = getInterpreter().adaptivePredict(_input,5,_ctx);
 			}
 			}
 			}
@@ -244,11 +308,9 @@ public class SfzParser extends Parser {
 	}
 
 	public static class HeaderObjectContext extends ParserRuleContext {
-		public TerminalNode LT() { return getToken(SfzParser.LT, 0); }
-		public HeaderNameContext headerName() {
-			return getRuleContext(HeaderNameContext.class,0);
+		public HeaderContext header() {
+			return getRuleContext(HeaderContext.class,0);
 		}
-		public TerminalNode GT() { return getToken(SfzParser.GT, 0); }
 		public HeaderObjectContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -269,12 +331,12 @@ public class SfzParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(34);
-			match(LT);
-			setState(35);
-			headerName();
-			setState(36);
-			match(GT);
+			setState(47);
+			match(T__0);
+			setState(48);
+			header();
+			setState(49);
+			match(T__1);
 			}
 		}
 		catch (RecognitionException re) {
@@ -288,34 +350,31 @@ public class SfzParser extends Parser {
 		return _localctx;
 	}
 
-	public static class HeaderNameContext extends ParserRuleContext {
-		public TerminalNode GLOBAL() { return getToken(SfzParser.GLOBAL, 0); }
-		public TerminalNode GROUP() { return getToken(SfzParser.GROUP, 0); }
-		public TerminalNode REGION() { return getToken(SfzParser.REGION, 0); }
-		public HeaderNameContext(ParserRuleContext parent, int invokingState) {
+	public static class HeaderContext extends ParserRuleContext {
+		public HeaderContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
-		@Override public int getRuleIndex() { return RULE_headerName; }
+		@Override public int getRuleIndex() { return RULE_header; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SfzListener ) ((SfzListener)listener).enterHeaderName(this);
+			if ( listener instanceof SfzListener ) ((SfzListener)listener).enterHeader(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SfzListener ) ((SfzListener)listener).exitHeaderName(this);
+			if ( listener instanceof SfzListener ) ((SfzListener)listener).exitHeader(this);
 		}
 	}
 
-	public final HeaderNameContext headerName() throws RecognitionException {
-		HeaderNameContext _localctx = new HeaderNameContext(_ctx, getState());
-		enterRule(_localctx, 6, RULE_headerName);
+	public final HeaderContext header() throws RecognitionException {
+		HeaderContext _localctx = new HeaderContext(_ctx, getState());
+		enterRule(_localctx, 6, RULE_header);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(38);
+			setState(51);
 			_la = _input.LA(1);
-			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << GLOBAL) | (1L << GROUP) | (1L << REGION))) != 0)) ) {
+			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__2) | (1L << T__3) | (1L << T__4))) != 0)) ) {
 			_errHandler.recoverInline(this);
 			}
 			else {
@@ -343,6 +402,10 @@ public class SfzParser extends Parser {
 		public ValueContext value() {
 			return getRuleContext(ValueContext.class,0);
 		}
+		public List<TerminalNode> WHITESPACE() { return getTokens(SfzParser.WHITESPACE); }
+		public TerminalNode WHITESPACE(int i) {
+			return getToken(SfzParser.WHITESPACE, i);
+		}
 		public OpcodeStatementContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -360,14 +423,35 @@ public class SfzParser extends Parser {
 	public final OpcodeStatementContext opcodeStatement() throws RecognitionException {
 		OpcodeStatementContext _localctx = new OpcodeStatementContext(_ctx, getState());
 		enterRule(_localctx, 8, RULE_opcodeStatement);
+		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(40);
+			setState(53);
 			opcode();
-			setState(41);
-			match(T__0);
-			setState(42);
+			setState(55);
+			_errHandler.sync(this);
+			_la = _input.LA(1);
+			if (_la==WHITESPACE) {
+				{
+				setState(54);
+				match(WHITESPACE);
+				}
+			}
+
+			setState(57);
+			match(T__5);
+			setState(59);
+			_errHandler.sync(this);
+			_la = _input.LA(1);
+			if (_la==WHITESPACE) {
+				{
+				setState(58);
+				match(WHITESPACE);
+				}
+			}
+
+			setState(61);
 			value();
 			}
 		}
@@ -383,6 +467,7 @@ public class SfzParser extends Parser {
 	}
 
 	public static class OpcodeContext extends ParserRuleContext {
+		public TerminalNode IDENTIFIER() { return getToken(SfzParser.IDENTIFIER, 0); }
 		public OpcodeContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -401,25 +486,10 @@ public class SfzParser extends Parser {
 		OpcodeContext _localctx = new OpcodeContext(_ctx, getState());
 		enterRule(_localctx, 10, RULE_opcode);
 		try {
-			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(47);
-			_errHandler.sync(this);
-			_alt = getInterpreter().adaptivePredict(_input,3,_ctx);
-			while ( _alt!=1 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
-				if ( _alt==1+1 ) {
-					{
-					{
-					setState(44);
-					matchWildcard();
-					}
-					} 
-				}
-				setState(49);
-				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,3,_ctx);
-			}
+			setState(63);
+			match(IDENTIFIER);
 			}
 		}
 		catch (RecognitionException re) {
@@ -434,6 +504,10 @@ public class SfzParser extends Parser {
 	}
 
 	public static class ValueContext extends ParserRuleContext {
+		public TerminalNode INT() { return getToken(SfzParser.INT, 0); }
+		public TerminalNode FLOAT() { return getToken(SfzParser.FLOAT, 0); }
+		public TerminalNode PATH() { return getToken(SfzParser.PATH, 0); }
+		public TerminalNode GENERATOR() { return getToken(SfzParser.GENERATOR, 0); }
 		public ValueContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -451,30 +525,20 @@ public class SfzParser extends Parser {
 	public final ValueContext value() throws RecognitionException {
 		ValueContext _localctx = new ValueContext(_ctx, getState());
 		enterRule(_localctx, 12, RULE_value);
+		int _la;
 		try {
-			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(51); 
-			_errHandler.sync(this);
-			_alt = 1+1;
-			do {
-				switch (_alt) {
-				case 1+1:
-					{
-					{
-					setState(50);
-					matchWildcard();
-					}
-					}
-					break;
-				default:
-					throw new NoViableAltException(this);
-				}
-				setState(53); 
-				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,4,_ctx);
-			} while ( _alt!=1 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
+			setState(65);
+			_la = _input.LA(1);
+			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << GENERATOR) | (1L << INT) | (1L << FLOAT) | (1L << PATH))) != 0)) ) {
+			_errHandler.recoverInline(this);
+			}
+			else {
+				if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+				_errHandler.reportMatch(this);
+				consume();
+			}
 			}
 		}
 		catch (RecognitionException re) {
@@ -489,22 +553,24 @@ public class SfzParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\r:\4\2\t\2\4\3\t"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\22F\4\2\t\2\4\3\t"+
 		"\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\3\2\7\2\22\n\2\f\2\16\2\25"+
-		"\13\2\3\2\3\2\3\3\3\3\6\3\33\n\3\r\3\16\3\34\3\3\7\3 \n\3\f\3\16\3#\13"+
-		"\3\3\4\3\4\3\4\3\4\3\5\3\5\3\6\3\6\3\6\3\6\3\7\7\7\60\n\7\f\7\16\7\63"+
-		"\13\7\3\b\6\b\66\n\b\r\b\16\b\67\3\b\5!\61\67\2\t\2\4\6\b\n\f\16\2\4\3"+
-		"\2\f\r\3\2\6\b\2\67\2\23\3\2\2\2\4\30\3\2\2\2\6$\3\2\2\2\b(\3\2\2\2\n"+
-		"*\3\2\2\2\f\61\3\2\2\2\16\65\3\2\2\2\20\22\5\4\3\2\21\20\3\2\2\2\22\25"+
-		"\3\2\2\2\23\21\3\2\2\2\23\24\3\2\2\2\24\26\3\2\2\2\25\23\3\2\2\2\26\27"+
-		"\7\2\2\3\27\3\3\2\2\2\30!\5\6\4\2\31\33\t\2\2\2\32\31\3\2\2\2\33\34\3"+
-		"\2\2\2\34\32\3\2\2\2\34\35\3\2\2\2\35\36\3\2\2\2\36 \5\6\4\2\37\32\3\2"+
-		"\2\2 #\3\2\2\2!\"\3\2\2\2!\37\3\2\2\2\"\5\3\2\2\2#!\3\2\2\2$%\7\4\2\2"+
-		"%&\5\b\5\2&\'\7\5\2\2\'\7\3\2\2\2()\t\3\2\2)\t\3\2\2\2*+\5\f\7\2+,\7\3"+
-		"\2\2,-\5\16\b\2-\13\3\2\2\2.\60\13\2\2\2/.\3\2\2\2\60\63\3\2\2\2\61\62"+
-		"\3\2\2\2\61/\3\2\2\2\62\r\3\2\2\2\63\61\3\2\2\2\64\66\13\2\2\2\65\64\3"+
-		"\2\2\2\66\67\3\2\2\2\678\3\2\2\2\67\65\3\2\2\28\17\3\2\2\2\7\23\34!\61"+
-		"\67";
+		"\13\2\3\2\3\2\3\3\7\3\32\n\3\f\3\16\3\35\13\3\3\3\3\3\7\3!\n\3\f\3\16"+
+		"\3$\13\3\3\3\3\3\6\3(\n\3\r\3\16\3)\3\3\7\3-\n\3\f\3\16\3\60\13\3\3\4"+
+		"\3\4\3\4\3\4\3\5\3\5\3\6\3\6\5\6:\n\6\3\6\3\6\5\6>\n\6\3\6\3\6\3\7\3\7"+
+		"\3\b\3\b\3\b\2\2\t\2\4\6\b\n\f\16\2\5\3\2\16\17\3\2\5\7\3\2\n\r\2F\2\23"+
+		"\3\2\2\2\4\33\3\2\2\2\6\61\3\2\2\2\b\65\3\2\2\2\n\67\3\2\2\2\fA\3\2\2"+
+		"\2\16C\3\2\2\2\20\22\5\4\3\2\21\20\3\2\2\2\22\25\3\2\2\2\23\21\3\2\2\2"+
+		"\23\24\3\2\2\2\24\26\3\2\2\2\25\23\3\2\2\2\26\27\7\2\2\3\27\3\3\2\2\2"+
+		"\30\32\t\2\2\2\31\30\3\2\2\2\32\35\3\2\2\2\33\31\3\2\2\2\33\34\3\2\2\2"+
+		"\34\36\3\2\2\2\35\33\3\2\2\2\36.\5\6\4\2\37!\t\2\2\2 \37\3\2\2\2!$\3\2"+
+		"\2\2\" \3\2\2\2\"#\3\2\2\2#%\3\2\2\2$\"\3\2\2\2%-\5\6\4\2&(\t\2\2\2\'"+
+		"&\3\2\2\2()\3\2\2\2)\'\3\2\2\2)*\3\2\2\2*+\3\2\2\2+-\5\n\6\2,\"\3\2\2"+
+		"\2,\'\3\2\2\2-\60\3\2\2\2.,\3\2\2\2./\3\2\2\2/\5\3\2\2\2\60.\3\2\2\2\61"+
+		"\62\7\3\2\2\62\63\5\b\5\2\63\64\7\4\2\2\64\7\3\2\2\2\65\66\t\3\2\2\66"+
+		"\t\3\2\2\2\679\5\f\7\28:\7\17\2\298\3\2\2\29:\3\2\2\2:;\3\2\2\2;=\7\b"+
+		"\2\2<>\7\17\2\2=<\3\2\2\2=>\3\2\2\2>?\3\2\2\2?@\5\16\b\2@\13\3\2\2\2A"+
+		"B\7\t\2\2B\r\3\2\2\2CD\t\4\2\2D\17\3\2\2\2\n\23\33\"),.9=";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {
