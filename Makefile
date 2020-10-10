@@ -1,4 +1,4 @@
-.PHONY: build_java build clean run test test-go test-java
+.PHONY: build_java build clean docker docker-intermediate docker-ci run test test-go test-java
 ANTLR_LIB=/usr/local/lib/antlr-4.8-complete.jar
 PACKAGE_JAVA=org.letizi.sfz.parser
 
@@ -6,7 +6,8 @@ default: all
 
 all: build-java build-go
 
-build-go:
+
+build-go: install-go
 	antlr -Dlanguage=Go -o go/parser Sfz.g4
 
 build-java:
@@ -20,3 +21,14 @@ test-go: build-go
 test-java:
 	mvn test
 
+install-go:
+	cd ./go && go get ./...
+
+docker: docker-intermediate docker-ci
+
+docker-intermediate:
+	cd docker/golang-java-intermediate && docker build -t oletizi/golang-java .
+	docker push oletizi/golang-java
+
+docker-ci:
+	cd docker/golang-java-antlr && docker build -t oletizi/docker-java-antlr .

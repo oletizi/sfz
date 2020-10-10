@@ -6,7 +6,8 @@ jobs:
   build:
     docker:
       # specify the version
-      - image: circleci/golang:1.9
+      #- image: circleci/golang:1.9
+      - image: oletizi/golang-java:latest
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -22,5 +23,5 @@ jobs:
       - checkout
 
       # specify any bash command here prefixed with `run: `
-      - run: go get -v -t -d ./...
-      - run: go test -v ./...
+      - run: make build-go #go get -v -t -d ./...
+      - run: make test-go #go test -v ./...
