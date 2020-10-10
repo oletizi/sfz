@@ -13,7 +13,7 @@ import (
 func TestBasics(t *testing.T) {
 	log.SetOutput(ioutil.Discard)
 	ass := require.New(t)
-	sfzFile, err := filepath.Abs("../../src/test/resources/test.sfz")
+	sfzFile, err := filepath.Abs("../src/test/resources/test.sfz")
 	ass.Nil(err)
 
 	log.Printf("sfzFile: %v", sfzFile)
