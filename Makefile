@@ -24,11 +24,14 @@ test-java:
 install-go:
 	cd ./go && go get ./...
 
+ci-local:
+	circleci local execute
+
 docker: docker-intermediate docker-ci
 
 docker-intermediate:
 	cd docker/golang-java-intermediate && docker build -t oletizi/golang-java .
-	docker push oletizi/golang-java
 
 docker-ci:
-	cd docker/golang-java-antlr && docker build -t oletizi/docker-java-antlr .
+	cd docker/golang-java-antlr && docker build -t oletizi/golang-java-antlr .
+	docker push oletizi/golang-java-antlr

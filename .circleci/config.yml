@@ -7,7 +7,7 @@ jobs:
     docker:
       # specify the version
       #- image: circleci/golang:1.9
-      - image: oletizi/golang-java:latest
+      - image: oletizi/golang-java-antlr:latest
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
