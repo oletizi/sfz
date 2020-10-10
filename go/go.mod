@@ -1,4 +1,4 @@
-module github.com/oletizi/sfz-parser
+module github.com/oletizi/sfz-parser/go/parser
 
 go 1.13
 
