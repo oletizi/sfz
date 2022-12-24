@@ -17,8 +17,4 @@ Look at the tests for usage.
 
     import github.com/oletizi/sfz-parser/go
 
-# Get it in Java
-
-You'll have to wrangle with maven to build a jar and/or add it to Maven Central. I don't have the stomach for it.
-
 
