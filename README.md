@@ -1,6 +1,7 @@
 # sfz-parser
-[![sfz-parser](https://circleci.com/gh/oletizi/sfz-parser.svg?style=shield)](https://circleci.com/gh/oletizi/sfz-parser)
+![CI](https://github.com/oletizi/sfz/actions/workflows/go.yml/badge.svg)
 [![Go Report Card](https://goreportcard.com/badge/github.com/oletizi/sfz-parser)](https://goreportcard.com/report/github.com/oletizi/sfz-parser)
+![Last commit](https://img.shields.io/github/last-commit/oletizi/sfz)
 
 Basic ANTLR parser for the [sfz file format](https://sfzformat.com/). It currently generates Java and Golang libraries.
 
